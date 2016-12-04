@@ -1,0 +1,70 @@
+{
+  "frameprovider": {
+    "type": "ximea",
+    "fps": 20,
+    "exposure": 10000,
+    "gain": 5,
+    "number": 1
+  },
+  "visualizer": {
+    "type": "simple",
+    "windowname": "camera",
+    "delay": 0
+  },
+  "transformer": {
+    "path_to_matrices": "C:/cv_build/Application/ex.json"
+  },
+  "objects": [
+    {
+      "name": "human",
+      "markertype": "aruco",
+      "markers": [
+        {
+          "name": "left_hand",
+          "id": 1
+        },
+        {
+          "name": "right_hand",
+          "id": 2
+        },
+        {
+          "name": "left_ankle",
+          "id": 3
+        },
+        {
+          "name": "right_ankle",
+          "id": 4
+        }
+      ]
+    },
+    {
+      "name": "box",
+      "markertype": "aruco",
+      "markers": [
+        {
+          "name": "box_marker",
+          "id": 10
+        }
+      ]
+    }
+	],
+  "imageprocessors": [
+    {
+      "type": "aruco",
+      "dictionary": 0
+    }
+  ],
+  "datasenders": [
+    {
+      "type": "zeromq",
+      "topic": "raw_aruco_data",
+      "bind_addresses": [ "tcp://*:5556" ],
+      "imageprocessor": "aruco"
+    },
+    {
+      "type": "zeromq",
+      "topic": "human_pose",
+      "bind_addresses": [ "tcp://*:5557" ]
+    }
+  ]
+}
