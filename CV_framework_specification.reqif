@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:configuration="http://eclipse.org/rmf/pror/toolextensions/1.0">
+  <THE-HEADER>
+    <REQ-IF-HEADER IDENTIFIER="_sCyWUX2VEea3su5Xej8Bew">
+      <COMMENT>Created by: Máté</COMMENT>
+      <CREATION-TIME>2016-09-18T13:47:34.069+02:00</CREATION-TIME>
+      <REQ-IF-TOOL-ID>fmStudio (http://formalmind.com/studio)</REQ-IF-TOOL-ID>
+      <REQ-IF-VERSION>1.0</REQ-IF-VERSION>
+      <SOURCE-TOOL-ID>ProR (http://pror.org)</SOURCE-TOOL-ID>
+      <TITLE>Computer Vision Framework Requirements</TITLE>
+    </REQ-IF-HEADER>
+  </THE-HEADER>
+  <CORE-CONTENT>
+    <REQ-IF-CONTENT>
+      <DATATYPES>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="_sCyWU32VEea3su5Xej8Bew" LAST-CHANGE="2016-09-18T13:47:34.069+02:00" LONG-NAME="T_String32k" MAX-LENGTH="32000"/>
+      </DATATYPES>
+      <SPEC-TYPES>
+        <SPEC-OBJECT-TYPE IDENTIFIER="_sCyWVH2VEea3su5Xej8Bew" LAST-CHANGE="2016-09-18T13:47:34.069+02:00" LONG-NAME="Requirement Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_sCyWVX2VEea3su5Xej8Bew" LAST-CHANGE="2016-09-18T13:47:34.069+02:00" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_sCyWU32VEea3su5Xej8Bew</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+        <SPECIFICATION-TYPE IDENTIFIER="_sCyWVn2VEea3su5Xej8Bew" LAST-CHANGE="2016-09-18T13:47:34.069+02:00" LONG-NAME="Specification Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_sCyWV32VEea3su5Xej8Bew" LAST-CHANGE="2016-09-18T13:47:34.069+02:00" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_sCyWU32VEea3su5Xej8Bew</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPECIFICATION-TYPE>
+      </SPEC-TYPES>
+      <SPEC-OBJECTS>
+        <SPEC-OBJECT IDENTIFIER="_sCyWWH2VEea3su5Xej8Bew" LAST-CHANGE="2016-10-25T12:55:34.184+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Widely applicable">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_Y4GtUH2ZEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T14:28:38.984+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Ready-to-use">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_fUUi0H2ZEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T13:18:32.442+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Easily extensible">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_2KqocH2ZEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T12:55:42.578+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Easy-to-use configuration method">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_6eiRYH2ZEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T12:55:51.573+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Offline configuration">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_9bhm8H2ZEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T13:00:35.035+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Online configuration">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_DDqUIH2aEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T13:18:08.415+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Built-in marker tracking methods">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_I3jlYH2aEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T13:19:18.181+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Integrate new marker tracking algorithm">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_Mlt5MH2aEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T13:19:55.962+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Integrate new data sender method">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_V1Qx8H2aEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T13:19:30.639+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Well defined image processor interface">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_YDTW0H2aEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T13:20:09.175+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Well defined data sender interface">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_iIEAUH2aEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T12:56:30.195+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Define objects and modules">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_kdtCAH2aEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T13:01:11.374+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Set frame provider parameters runtime">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_nVxbUH2aEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T13:01:04.177+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Set image processing specific parameters runtime">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_Ccxd0H2bEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T12:59:43.100+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Automatically build the flow graph based on configuration">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_NIk5MH2bEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T13:01:58.156+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Provide raw image processing data">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_TSCx0H2bEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T13:03:12.486+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Provide object and marker mapped data based on configuration">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_rE7_QH2bEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T12:59:01.092+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Set object and module specific parameters">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_29x1gH2bEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T13:00:13.405+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Validate configuration">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_RLWqwH2eEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T13:04:34.092+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Handle any kind of frame source">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_XrL08H2eEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T13:15:30.506+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Handle multi-camera systems">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_BZgtMH2fEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T14:15:40.367+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Built-in 2D-3D transformation">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_Nv6MsH2gEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T12:55:20.340+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Marker based object tracking">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_iOjbIH2gEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T12:54:48.873+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Marker detection">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_m0K7YH2gEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T12:55:01.688+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Store and forward marker positions">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_Djx6cH2hEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T13:15:09.066+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Several marker types can be detected at the same time">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_J3FrkH2hEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T13:17:38.680+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Object detection limit can be set">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_21xWYJqiEea3fP07TKBCng" LAST-CHANGE="2016-10-25T13:04:50.071+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Read from video file(s)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_5tEToJqiEea3fP07TKBCng" LAST-CHANGE="2016-10-25T13:04:54.483+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Capture from camera(s)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_GoD4gJqlEea3fP07TKBCng" LAST-CHANGE="2016-10-25T13:20:50.562+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Distributed usage">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_Nz3X4JqlEea3fP07TKBCng" LAST-CHANGE="2016-10-25T13:20:59.804+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Send output data over network interface">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_Rvv-oJqlEea3fP07TKBCng" LAST-CHANGE="2016-10-25T13:22:10.609+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Integrate new frame source">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_UsgqsJqlEea3fP07TKBCng" LAST-CHANGE="2016-10-25T13:22:17.696+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Well defined frame source interface">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_aNQ9gJqlEea3fP07TKBCng" LAST-CHANGE="2016-10-25T13:23:04.846+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Assign markers to objects">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_s-NP0JqsEea3fP07TKBCng" LAST-CHANGE="2016-10-25T14:15:19.407+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Built-in frame provider">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_LPhOEJxhEea2vMW3EDrV5A" LAST-CHANGE="2016-10-27T18:19:43.668+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Integrate new visualizer method">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWVX2VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_sCyWVH2VEea3su5Xej8Bew</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+      </SPEC-OBJECTS>
+      <SPECIFICATIONS>
+        <SPECIFICATION IDENTIFIER="_sCyWWn2VEea3su5Xej8Bew" LAST-CHANGE="2016-09-18T13:47:34.069+02:00" LONG-NAME="Specification Document">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Requirements Document">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_sCyWV32VEea3su5Xej8Bew</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPECIFICATION-TYPE-REF>_sCyWVn2VEea3su5Xej8Bew</SPECIFICATION-TYPE-REF>
+          </TYPE>
+          <CHILDREN>
+            <SPEC-HIERARCHY IDENTIFIER="_NwXfsH2gEeaewflzfqP4zg" LAST-CHANGE="2016-09-18T15:02:48.961+02:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_Nv6MsH2gEeaewflzfqP4zg</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="_iPAHEH2gEeaewflzfqP4zg" LAST-CHANGE="2016-09-18T15:02:59.619+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_iOjbIH2gEeaewflzfqP4zg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_m0nnUH2gEeaewflzfqP4zg" LAST-CHANGE="2016-09-18T15:05:40.524+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_m0K7YH2gEeaewflzfqP4zg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_aNj4cJqlEea3fP07TKBCng" LAST-CHANGE="2016-10-25T13:23:04.846+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_aNQ9gJqlEea3fP07TKBCng</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="_sCyWXH2VEea3su5Xej8Bew" LAST-CHANGE="2016-09-18T13:47:34.069+02:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_sCyWWH2VEea3su5Xej8Bew</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="_2LHUYH2ZEeaewflzfqP4zg" LAST-CHANGE="2016-09-18T14:17:15.412+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_2KqocH2ZEeaewflzfqP4zg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="_6e-9UH2ZEeaewflzfqP4zg" LAST-CHANGE="2016-09-18T14:17:35.228+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_6eiRYH2ZEeaewflzfqP4zg</SPEC-OBJECT-REF>
+                      </OBJECT>
+                      <CHILDREN>
+                        <SPEC-HIERARCHY IDENTIFIER="_iIgsQH2aEeaewflzfqP4zg" LAST-CHANGE="2016-09-18T14:22:11.637+02:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_iIEAUH2aEeaewflzfqP4zg</SPEC-OBJECT-REF>
+                          </OBJECT>
+                          <CHILDREN>
+                            <SPEC-HIERARCHY IDENTIFIER="_rFYrMH2bEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T12:58:32.315+02:00">
+                              <OBJECT>
+                                <SPEC-OBJECT-REF>_rE7_QH2bEeaewflzfqP4zg</SPEC-OBJECT-REF>
+                              </OBJECT>
+                            </SPEC-HIERARCHY>
+                            <SPEC-HIERARCHY IDENTIFIER="_CdOJwH2bEeaewflzfqP4zg" LAST-CHANGE="2016-09-18T14:25:32.913+02:00">
+                              <OBJECT>
+                                <SPEC-OBJECT-REF>_Ccxd0H2bEeaewflzfqP4zg</SPEC-OBJECT-REF>
+                              </OBJECT>
+                              <CHILDREN/>
+                            </SPEC-HIERARCHY>
+                            <SPEC-HIERARCHY IDENTIFIER="_2-XrYH2bEeaewflzfqP4zg" LAST-CHANGE="2016-10-25T12:59:51.726+02:00">
+                              <OBJECT>
+                                <SPEC-OBJECT-REF>_29x1gH2bEeaewflzfqP4zg</SPEC-OBJECT-REF>
+                              </OBJECT>
+                            </SPEC-HIERARCHY>
+                          </CHILDREN>
+                        </SPEC-HIERARCHY>
+                      </CHILDREN>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_9b9r0H2ZEeaewflzfqP4zg" LAST-CHANGE="2016-09-18T14:17:50.606+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_9bhm8H2ZEeaewflzfqP4zg</SPEC-OBJECT-REF>
+                      </OBJECT>
+                      <CHILDREN>
+                        <SPEC-HIERARCHY IDENTIFIER="_keJt8H2aEeaewflzfqP4zg" LAST-CHANGE="2016-09-18T14:22:27.406+02:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_kdtCAH2aEeaewflzfqP4zg</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="_nWNgMH2aEeaewflzfqP4zg" LAST-CHANGE="2016-09-18T14:22:31.704+02:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_nVxbUH2aEeaewflzfqP4zg</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                      </CHILDREN>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_NJBlIH2bEeaewflzfqP4zg" LAST-CHANGE="2016-09-18T14:26:56.633+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_NIk5MH2bEeaewflzfqP4zg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_TSfdwH2bEeaewflzfqP4zg" LAST-CHANGE="2016-09-18T14:27:05.307+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_TSCx0H2bEeaewflzfqP4zg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_RLzWsH2eEeaewflzfqP4zg" LAST-CHANGE="2016-09-18T14:48:56.930+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_RLWqwH2eEeaewflzfqP4zg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="_22NbQJqiEea3fP07TKBCng" LAST-CHANGE="2016-10-25T13:04:50.071+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_21xWYJqiEea3fP07TKBCng</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_5tg_kJqiEea3fP07TKBCng" LAST-CHANGE="2016-10-25T13:04:54.483+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_5tEToJqiEea3fP07TKBCng</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_Xrog4H2eEeaewflzfqP4zg" LAST-CHANGE="2016-09-18T14:49:10.512+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_XrL08H2eEeaewflzfqP4zg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_DkOmYH2hEeaewflzfqP4zg" LAST-CHANGE="2016-09-18T15:08:51.013+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_Djx6cH2hEeaewflzfqP4zg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN/>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_J3iXgH2hEeaewflzfqP4zg" LAST-CHANGE="2016-09-18T15:09:33.303+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_J3FrkH2hEeaewflzfqP4zg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_Gof9YJqlEea3fP07TKBCng" LAST-CHANGE="2016-10-25T13:20:50.562+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_GoD4gJqlEea3fP07TKBCng</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="_N0KS0JqlEea3fP07TKBCng" LAST-CHANGE="2016-10-25T13:20:59.804+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_Nz3X4JqlEea3fP07TKBCng</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="_Y4sjMH2ZEeaewflzfqP4zg" LAST-CHANGE="2016-09-18T14:13:59.536+02:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_Y4GtUH2ZEeaewflzfqP4zg</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="_DEHAEH2aEeaewflzfqP4zg" LAST-CHANGE="2016-09-18T14:18:43.685+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_DDqUIH2aEeaewflzfqP4zg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_BZ0PMH2fEeaewflzfqP4zg" LAST-CHANGE="2016-09-18T14:54:18.882+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_BZgtMH2fEeaewflzfqP4zg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_s-gKwJqsEea3fP07TKBCng" LAST-CHANGE="2016-10-25T14:15:19.407+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_s-NP0JqsEea3fP07TKBCng</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="_fUwnsH2ZEeaewflzfqP4zg" LAST-CHANGE="2016-09-18T14:14:44.090+02:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_fUUi0H2ZEeaewflzfqP4zg</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="_I4ARUH2aEeaewflzfqP4zg" LAST-CHANGE="2016-09-18T14:19:18.477+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_I3jlYH2aEeaewflzfqP4zg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="_V1s20H2aEeaewflzfqP4zg" LAST-CHANGE="2016-09-18T14:20:48.072+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_V1Qx8H2aEeaewflzfqP4zg</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_MmKlIH2aEeaewflzfqP4zg" LAST-CHANGE="2016-09-18T14:19:26.588+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_Mlt5MH2aEeaewflzfqP4zg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="_YDvbsH2aEeaewflzfqP4zg" LAST-CHANGE="2016-09-18T14:21:03.575+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_YDTW0H2aEeaewflzfqP4zg</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_RwJAMJqlEea3fP07TKBCng" LAST-CHANGE="2016-10-25T13:22:10.609+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_Rvv-oJqlEea3fP07TKBCng</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="_UszloJqlEea3fP07TKBCng" LAST-CHANGE="2016-10-25T13:22:17.696+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_UsgqsJqlEea3fP07TKBCng</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_LP96AJxhEea2vMW3EDrV5A" LAST-CHANGE="2016-10-27T18:19:43.668+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_LPhOEJxhEea2vMW3EDrV5A</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+          </CHILDREN>
+        </SPECIFICATION>
+      </SPECIFICATIONS>
+    </REQ-IF-CONTENT>
+  </CORE-CONTENT>
+  <TOOL-EXTENSIONS>
+    <REQ-IF-TOOL-EXTENSION>
+      <configuration:ProrToolExtension>
+        <configuration:specViewConfigurations>
+          <configuration:ProrSpecViewConfiguration specification="_sCyWWn2VEea3su5Xej8Bew">
+            <configuration:columns>
+              <configuration:Column label="Description" width="400"/>
+            </configuration:columns>
+            <configuration:leftHeaderColumn>
+              <configuration:Column label="Lead Header Column" width="67"/>
+            </configuration:leftHeaderColumn>
+          </configuration:ProrSpecViewConfiguration>
+        </configuration:specViewConfigurations>
+        <configuration:generalConfiguration>
+          <configuration:ProrGeneralConfiguration>
+            <configuration:labelConfiguration>
+              <configuration:LabelConfiguration>
+                <defaultLabel>Description</defaultLabel>
+              </configuration:LabelConfiguration>
+            </configuration:labelConfiguration>
+          </configuration:ProrGeneralConfiguration>
+        </configuration:generalConfiguration>
+      </configuration:ProrToolExtension>
+    </REQ-IF-TOOL-EXTENSION>
+  </TOOL-EXTENSIONS>
+</REQ-IF>
