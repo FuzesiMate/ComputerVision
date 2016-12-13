@@ -1,9 +1,4 @@
-/*
- * ComputerVision.cpp
- *
- *  Created on: 2016. aug. 9.
- *      Author: M�t�
- */
+
 #include <winsock2.h>
 #include "ComputerVision.h"
 #include <boost/property_tree/json_parser.hpp>
@@ -18,6 +13,7 @@
 #include "FrameProviderFactory.h"
 #include "CoordinateTransformer.h"
 #include "VisualizerFactory.h"
+#include "logger.h"
 #include "Object.cpp"
 
 bool ComputerVision::initialize(const std::string configFilePath) {
@@ -36,7 +32,7 @@ bool ComputerVision::initialize(const std::string configFilePath) {
 			boost::property_tree::read_json(configFilePath, config);
 		}
 		catch (std::exception& e) {
-			std::cout << "JSON file is missing or invalid! Error message: " << e.what() << std::endl;
+			LOGGER::LOG(Severity::CRITICAL, "JSON parser", e.what());
 			initialized = false;
 			return initialized;
 		}
@@ -57,13 +53,13 @@ bool ComputerVision::initialize(const std::string configFilePath) {
 				frameProvider = FrameProviderFactory::createFrameProvider(cameraConfig, *this);
 			}
 			catch (std::exception& e) {
-				std::cout << "Error occured while creating frame provider! Error message: " << e.what() << std::endl;
+				LOGGER::LOG(Severity::CRITICAL, "Frame provider factory", e.what());
 				initialized = false;
 				return initialized;
 			}
 		}
 		catch (std::exception& e) {
-			std::cout << "Error occured while parsing camera configuration! Error message: " << e.what() << std::endl;
+			LOGGER::LOG(Severity::CRITICAL, "JSON parser", e.what());
 			initialized = false;
 			return initialized;
 		}
@@ -89,7 +85,7 @@ bool ComputerVision::initialize(const std::string configFilePath) {
 				}
 			}
 			catch (std::exception& e) {
-				std::cout << "Error occured while creating data sender! Error message: " << e.what() << std::endl;
+				LOGGER::LOG(Severity::CRITICAL, "Data sender factory", e.what());
 				initialized = false;
 				return initialized;
 			}
@@ -110,7 +106,7 @@ bool ComputerVision::validateConfig() {
 	bool validConfig = true;
 
 	if (objects.empty()) {
-		std::cout << "OBJECT CONFIGURATION ERROR: The list of Objects is empty!" << std::endl;
+		LOGGER::LOG(Severity::CRITICAL , "Object configuration" , "The list of objects is empty!");
 		validConfig = false;
 	}
 	/*
@@ -326,7 +322,7 @@ void ComputerVision::startProcessing() {
 			   /*
 				* FrameLimiter---|
 				*			     |--->FrameModelDataJoiner--->Visualizer
-				*	      Model---|
+				*	     Model---|
 				*/
 				make_edge(frameLimiter, tbb::flow::input_port<0>(FrameModelDataJoiner));
 				make_edge(model->getProcessorNode(), tbb::flow::input_port<1>(FrameModelDataJoiner));
