@@ -17,22 +17,20 @@ template<typename T>
 using tbb_vector = tbb::concurrent_vector<T>;
 
 struct Frame {
-	tbb::concurrent_vector<cv::Mat> images;
+	tbb_vector<cv::Mat> images;
 	uint64_t timestamp;
 	uint64_t frameIndex;
-	int fps;
+	float fps;
 };
 
 template <typename CONFIG> struct ImageProcessingData {
-	tbb::concurrent_vector<typename CONFIG::dataType> data;
-	tbb::concurrent_vector<typename CONFIG::identifierType> identifiers;
+	tbb_vector<typename CONFIG::dataType> data;
+	tbb_vector<typename CONFIG::identifierType> identifiers;
 	uint64_t timestamp;
 	uint64_t frameIndex;
-
+	//serialize the data into a json object
 	std::string toJSON() {
-
 		std::stringstream json;
-
 		std::map<int, std::vector<cv::Point2f> > markerPositions;
 
 		size_t idIndex = 0;
@@ -69,7 +67,6 @@ template <typename CONFIG> struct ImageProcessingData {
 				}
 				markerIndex++;
 			}
-
 			json << "],";
 			json << "\"timestamp\":" << timestamp << ",";
 			json << "\"frameindex\":" << frameIndex;
@@ -81,26 +78,25 @@ template <typename CONFIG> struct ImageProcessingData {
 
 struct MarkerData {
 	std::string name;
-	tbb::concurrent_vector<bool> tracked;
-	tbb::concurrent_vector<cv::Point2f> screenPosition;
+	tbb_vector<bool> tracked;
+	tbb_vector<cv::Point2f> screenPosition;
 	cv::Point3f realPosition;
 };
 
 struct ObjectData {
 	std::string name;
-	tbb::concurrent_unordered_map<std::string , MarkerData> markerData;
+	tbb_map<std::string , MarkerData> markerData;
 	uint64_t timestamp;
 	uint64_t frameIndex;
 	bool alive;
 };
 
 struct ModelData {
-	tbb::concurrent_unordered_map<std::string , ObjectData> objectData;
+	tbb_map<std::string , ObjectData> objectData;
 	uint64_t timestamp;
 	uint64_t frameIndex;
-
+	//serialize the data into a json object
 	std::string toJSON() {
-
 		std::stringstream json;
 
 		json << "{\"Objects\":[";
@@ -139,10 +135,8 @@ struct ModelData {
 				if (markerIndex < object.second.markerData.size() - 1) {
 					json << ",";
 				}
-
 				markerIndex++;
 			}
-
 			json << "]}";
 
 			if (objectIndex < objectData.size() - 1) {
@@ -150,7 +144,6 @@ struct ModelData {
 			}
 			objectIndex++;
 		}
-
 		json << "],";
 		json << "\"timestamp\":" << timestamp << ",";
 		json << "\"frameindex\":" << frameIndex;

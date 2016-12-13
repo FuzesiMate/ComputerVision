@@ -229,7 +229,7 @@ ImageProcessingData<CONFIG> IRTDImageProcessor<CONFIG>::process(Frame frame) {
 							ankle = RIGHT_ANKLE;
 							hand = RIGHT_HAND;
 						}
-						markerPosition.push_back(cv::Point2f(cluster.boundingRect.x, cluster.boundingRect.y));
+						markerPosition.push_back(cv::Point2f(static_cast<float>(cluster.boundingRect.x), static_cast<float>(cluster.boundingRect.y)));
 						if (averageLuminosity > 120) {
 							markerIdentifier.push_back(ankle);
 						}if (averageLuminosity < 100) {

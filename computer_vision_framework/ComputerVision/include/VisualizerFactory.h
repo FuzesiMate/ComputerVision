@@ -31,19 +31,18 @@ public:
 			{
 				auto delay = parameters.get<int>(DELAY);
 				auto windowName = parameters.get<std::string>(WINDOW_NAME);
-				visualizer = std::unique_ptr<SimpleVisualizer>(new SimpleVisualizer(windowName, delay, g));
+				auto simple = std::make_unique<SimpleVisualizer>(windowName, delay, g);
+				visualizer = std::move(simple);
 				break; 
-			}
-				
+			}		
 			default:
-				throw std::exception("Unknown visualizer type!");
+				throw std::exception("Not supported visualizer!");
 				break;
 			}
 		}
 		catch (std::exception& e) {
 			throw e;
 		}
-
 		return visualizer;
 	}
 

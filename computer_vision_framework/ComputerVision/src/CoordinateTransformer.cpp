@@ -72,9 +72,7 @@ ModelData CoordinateTransformer::process(ModelData modelData){
 					cv::triangulatePoints(matrices.projectionMatrix[0], matrices.projectionMatrix[1], p1, p2, cord);
 
 					float x, y, z;
-
 					for (int i = 0; i<cord.cols; i++) {
-
 						float w = cord.at<float>(3, i);
 						x = cord.at<float>(0, i) / w;
 						y = cord.at<float>(1, i) / w;

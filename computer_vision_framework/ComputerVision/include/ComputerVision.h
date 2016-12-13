@@ -68,6 +68,7 @@ private:
 	std::atomic<bool> initialized;
 	std::atomic<bool> processing;
 
+	bool validateConfig();
 public:
 	ComputerVision():initialized(false), processing(false),model(std::make_unique<ModelDataStore>(*this)) {};
 	bool initialize(const std::string configFilePath);

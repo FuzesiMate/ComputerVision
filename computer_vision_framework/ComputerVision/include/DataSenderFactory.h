@@ -35,8 +35,7 @@ public:
 			switch (senderType) {
 			case DataSenderType::ZEROMQ:
 			{
-				auto topic = parameters.get<std::string>(TOPIC);
-				
+				auto topic = parameters.get<std::string>(TOPIC);	
 				std::vector<std::string> addresses;
 				for (auto& address : parameters.get_child(BIND_ADRESSES)) {
 					addresses.push_back(address.second.get<std::string>(""));
@@ -48,7 +47,7 @@ public:
 				throw std::exception("MQTT data sender is not implemented!");
 				break;
 			default:
-				throw std::exception("Unsupported data sender type!");
+				throw std::exception("Not supported data sender!");
 				break;
 			}
 		}

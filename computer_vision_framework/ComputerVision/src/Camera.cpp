@@ -32,13 +32,13 @@ bool Camera::provide(Frame &frame) {
 	tbb::parallel_for(size_t(0), cameras.size(), [&](size_t i ) {
 		cameras[i].retrieve(frame.images[i]);
 	});
-	int64_t currentFps;
+	float currentFps;
 	if((currentTimestamp-lastTimestamp)>0){
-		currentFps = (float)1000/(currentTimestamp-lastTimestamp);
+		currentFps = 1000.0f/(currentTimestamp-lastTimestamp);
 	}
 	std::stringstream fpsstring;
 	fpsstring <<"Current fps: "<<currentFps;
-	frame.fps = (int)currentFps;
+	frame.fps = currentFps;
 
 #ifdef LOG
 	ofs << fps << ";" << currentFps << std::endl;

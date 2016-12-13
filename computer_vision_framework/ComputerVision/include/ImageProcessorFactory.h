@@ -32,10 +32,8 @@ public:
 	static std::shared_ptr<ImageProcessor<CONFIG> >createImageProcessor(boost::property_tree::ptree parameters, tbb::flow::graph& g) {
 
 		std::shared_ptr < ImageProcessor<CONFIG> > imageprocessor;
-
 		try {
 			auto markerType = res_MarkerType[parameters.get<std::string>(TYPE)];
-
 			switch (markerType) {
 			case ARUCO:
 				imageprocessor = std::make_shared<ArucoImageProcessor<CONFIG> >(g);
@@ -56,7 +54,6 @@ public:
 				throw std::exception("Not supported image processing method!");
 				break;
 			}
-
 			imageprocessor->reconfigure(parameters);
 		}
 		catch (std::exception& e) {

@@ -4,7 +4,7 @@
  *  Created on: 2016. aug. 9.
  *      Author: M�t�
  */
-#include "winsock2.h"
+#include <winsock2.h>
 #include "ComputerVision.h"
 #include <boost/property_tree/json_parser.hpp>
 #include <tbb/tbb.h>
@@ -40,6 +40,14 @@ bool ComputerVision::initialize(const std::string configFilePath) {
 			initialized = false;
 			return initialized;
 		}
+
+		if (!validateConfig()) {
+			initialized = false;
+			return initialized;
+		}
+		/*
+		CREATE FRAME PROVIDER
+		*/
 		frameProvider.reset();
 		try {
 			auto cameraConfig = config.get_child(FRAME_PROVIDER);
@@ -59,6 +67,9 @@ bool ComputerVision::initialize(const std::string configFilePath) {
 			initialized = false;
 			return initialized;
 		}
+	   /*
+		*CREATE DATA SENDERS
+		*/
 		objectDataSenders.clear();
 		ipDataSenders.clear();
 		if (config.find(DATA_SENDERS) != config.not_found()) {
@@ -78,7 +89,7 @@ bool ComputerVision::initialize(const std::string configFilePath) {
 				}
 			}
 			catch (std::exception& e) {
-				std::cout << "Error while creating data sender! Error message: " << e.what() << std::endl;
+				std::cout << "Error occured while creating data sender! Error message: " << e.what() << std::endl;
 				initialized = false;
 				return initialized;
 			}
@@ -88,15 +99,117 @@ bool ComputerVision::initialize(const std::string configFilePath) {
 	return initialized;
 }
 
+bool ComputerVision::validateConfig() {
+	auto objects = config.get_child(OBJECTS);
+	auto imageProcessors = config.get_child(IMAGEPROCESSORS);
+	
+	std::vector<std::string> objectNames;
+	std::vector<std::string> markerNames;
+	std::vector<std::string> markerIdentifiers;
+	
+	bool validConfig = true;
+
+	if (objects.empty()) {
+		std::cout << "OBJECT CONFIGURATION ERROR: The list of Objects is empty!" << std::endl;
+		validConfig = false;
+	}
+	/*
+	Validate object configuration
+	*/
+	for (auto& object : objects) {
+
+		auto name = object.second.get<std::string>(NAME);
+		if (std::find(objectNames.begin() , objectNames.end() , name) != objectNames.end()) {
+			std::cout << "OBJECT CONFIGURATION ERROR: The name " << name << " is not unique!" << std::endl;
+			validConfig = false;
+		}
+		objectNames.push_back(name);
+		
+		auto markers = object.second.get_child(MARKERS);
+		if (markers.empty()) {
+			std::cout << "OBJECT CONFIGURATION ERROR: The list of markers is empty! (Object: " << name<<")"<<std::endl;
+			validConfig = false;
+		}
+		for (auto& marker : markers) {
+			auto markerName = marker.second.get<std::string>(NAME);
+			auto markerID = marker.second.get<std::string>(ID);
+			if (std::find(markerNames.begin(), markerNames.end(), markerName)!=markerNames.end()) {
+				std::cout << "OBJECT CONFIGURATION WARNING: The marker name " << markerName << " is not unique! (Object: " <<name<<")"<< std::endl;
+				validConfig = false;
+			}
+			markerNames.push_back(markerName);
+			if (std::find(markerIdentifiers.begin(), markerIdentifiers.end(), markerID) != markerIdentifiers.end()) {
+				std::cout << "OBJECT CONFIGURATION WARNING: The marker identifier " << markerID << " is not unique! (Object: " << name << ")" << std::endl;
+				validConfig = false;
+			}
+			markerIdentifiers.push_back(markerID);
+		}
+
+		auto markerType = object.second.get<std::string>(MARKER_TYPE);
+		bool imageProcessorExists = false;
+		for (auto& imageProcessor : imageProcessors) {
+			auto ipType = imageProcessor.second.get<std::string>(TYPE);
+			if (ipType == markerType) {
+				imageProcessorExists = true;
+			}
+		}
+		if (!imageProcessorExists) {
+			std::cout << "OBJECT CONFIGURATION ERROR: The assigned ImageProcessor does not exist! (Object: " << name <<")"<<std::endl;
+			validConfig = false;
+		}
+	}
+	/*
+	Validate image processor configuration
+	*/
+	for (auto& imageProcessor : imageProcessors) {
+		auto ipType = imageProcessor.second.get<std::string>(TYPE);
+		bool hasAssignedObject = false;
+		for (auto& object : objects) {
+			auto markerType = object.second.get<std::string>(MARKER_TYPE);
+			if (ipType == markerType) {
+				hasAssignedObject = true;
+			}
+		}
+		if (!hasAssignedObject) {
+			std::cout << "IMAGE PROCESSOR CONFIGURATION ERROR: No object is assigned! (ImageProcessor: " << ipType <<")"<< std::endl;
+			validConfig = false;
+		}
+	}
+	/*
+	Validate data sender configuration
+	*/
+	if (config.find(DATA_SENDERS) != config.not_found()) {
+		auto dataSenders = config.get_child(DATA_SENDERS);
+		for (auto& dataSender : dataSenders) {
+			if (dataSender.second.find(IMAGEPROCESSOR) != dataSender.second.not_found()) {
+				bool imageProcessorExists = false;
+				auto assignedIpType = dataSender.second.get<std::string>(IMAGEPROCESSOR);
+				for (auto& imageProcessor : imageProcessors) {
+					auto ipType = imageProcessor.second.get<std::string>(TYPE);
+					if (ipType == assignedIpType) {
+						imageProcessorExists = true;
+					}
+				}
+				if (!imageProcessorExists) {
+					std::cout << "DATA SENDER CONFIGURATION ERROR: The assigned ImageProcessor does not exist!" << std::endl;
+					validConfig = false;
+				}
+			}
+		}
+	}
+
+	return validConfig;
+}
+
 void ComputerVision::startProcessing() {
 
-	std::cout << "processing thread started!" << std::endl;
+	std::cout << "Building data flow graph..." << std::endl;
 
 	if (initialized && !processing) {
 		/*
 		 * this function blocks it's caller until the processing workflow ends
 		 * we do not need these nodes outside this function, so they are instantiated locally
-		 * if the processing ends, they will be destructed
+		 * if the processing ends, they will be destroyed
 		 */
 		 //objects mapped by their name
 		std::map<std::string, std::unique_ptr<Object<t_cfg> > > objects;
@@ -141,13 +254,13 @@ void ComputerVision::startProcessing() {
 					IpDataBroadcasters.emplace(type , std::make_unique<ip_data_broadcaster>(*this));
 				}
 				catch (std::exception& e) {
-					std::cout << "Error while creating image processor! Error message: " << e.what() << std::endl;
+					std::cout << "Error occured while creating image processor! Error message: " << e.what() << std::endl;
+					return;
 				}
 			}
 		}
 		catch (std::exception& e) {
-			std::cout << "Error while parsing image processor configuration! Error message: " << e.what() << std::endl;
-			processing = false;
+			std::cout << "Error occured while parsing image processor configuration! Error message: " << e.what() << std::endl;
 			return;
 		}
 		/*
@@ -162,15 +275,14 @@ void ComputerVision::startProcessing() {
 			for (auto& object : config.get_child(OBJECTS)) {
 				auto name = object.second.get<std::string>(NAME);
 				auto type = object.second.get<std::string>(MARKER_TYPE);
-				/*
-				Find the limitation value to imageprocessors
-				They will be stopped if there is no more object
-				that needs their output
+			   /*
+				* Find the limitation value to imageprocessors
+				* They will be stopped if there is no more object
+				* that needs their output
 				*/
 				int limit;
 				object.second.find(LIMIT) != object.second.not_found() ? limit = object.second.get<int>(LIMIT) : limit = -1;
-
-				objects.emplace(std::make_pair(name, std::unique_ptr<Object<t_cfg> >(new Object<t_cfg>(name, type, limit, *this))));
+				objects.emplace(std::make_pair(name, std::make_unique<Object<t_cfg> >(name, type, limit, *this)));
 				
 				for (auto& marker : object.second.get_child(MARKERS)) {
 					objects[name]->addMarker(marker.second.get<std::string>(NAME), marker.second.get<int>(ID));
@@ -184,19 +296,19 @@ void ComputerVision::startProcessing() {
 			}
 		}
 		catch (std::exception& e) {
-			std::cout << "Error while parsing objects! Error message: " << e.what() << std::endl;
-			processing = false;
+			std::cout << "Error occured while creating objects! Error message: " << e.what() << std::endl;
 			return;
 		}
 
 		//build the data flow graph
-		/*
-		connect the camera and the frame limiter node
+		
+	   /*
+		* FrameProvider--->FrameLimiter		
 		*/
 		make_edge(frameProvider->getProviderNode(), frameLimiter);
 		/*
-		Parse the configuration and instantiate visualizer module if required
-		merge output data with the corresponding frame
+		* Parse the configuration and instantiate visualizer module if required
+		* merge output data with the corresponding frame
 		*/
 		tbb::flow::join_node<tbb::flow::tuple<Frame, ModelData>, tbb::flow::queueing > FrameModelDataJoiner(*this);
 
@@ -211,9 +323,10 @@ void ComputerVision::startProcessing() {
 					std::cout << "Error occured while creating visualizer! Error message: " << e.what() << std::endl;
 					return;
 				}
-				/*
-				the join node gets the output model instances and frames from the frame provider
-				forwards the merged data to the visualizer module
+			   /*
+				* FrameLimiter---|
+				*			     |--->FrameModelDataJoiner--->Visualizer
+				*	      Model---|
 				*/
 				make_edge(frameLimiter, tbb::flow::input_port<0>(FrameModelDataJoiner));
 				make_edge(model->getProcessorNode(), tbb::flow::input_port<1>(FrameModelDataJoiner));
@@ -224,52 +337,73 @@ void ComputerVision::startProcessing() {
 				return;
 			}
 		}
-		/*
-		connect image processors to camera and corresponding objects
-		if all objects assigned to an image processor is limited
-		then the image processor will be also limited
+	   /*
+		* connect image processors to camera and corresponding objects
+		* if all objects assigned to an image processor is limited
+		* then the image processor will be also limited
 		*/
 		int i = 0;
 		for (auto& imageProcessor : imageProcessors) {
 			if (imageProcessorLimits[imageProcessor.first] != -1) {
 				ipLimiters.emplace(imageProcessor.first, std::make_unique<frame_limiter>(*this, imageProcessorLimits[imageProcessor.first]));
+			   /*
+				* FrameLimiter--->ImageProcessorLimiter--->ImageProcessor
+				*/
 				make_edge(frameLimiter, *ipLimiters[imageProcessor.first]);
 				make_edge(*ipLimiters[imageProcessor.first], imageProcessor.second->getProcessorNode());
 			}
 			else {
+			   /*
+				* FrameLimiter--->ImageProcessor
+				*/
 				make_edge(frameLimiter, imageProcessor.second->getProcessorNode());
 			}
+		   /*
+			* ImageProcessor--->ImageProcessingDataSequencer--->ImageProcessingDataBroadcaster
+			*/
 			make_edge(imageProcessor.second->getProcessorNode(), *IpDataSequencers[i]);
 			make_edge(*IpDataSequencers[i], *IpDataBroadcasters[imageProcessor.first]);
 
 			if (ipDataSenders.find(imageProcessor.first) != ipDataSenders.end()) {
+			   /*
+				* ImageProcessingDataBroadcaster--->ImageProcessingDataSender
+				*/
 				make_edge(*IpDataBroadcasters[imageProcessor.first], ipDataSenders[imageProcessor.first]->getProcessorNode());
 			}
 			i++;
 		}
-		/*
-		connect the object to the object data collector module
-		if the object is limited a limiter node is applied before
+	   /*
+		* connect the object to the object data collector module
+		* if the object is limited a limiter node is applied before
 		*/
 		int j = 0;
 		for (auto& object : objects) {
 			if (objectLimiters.find(object.first) != objectLimiters.end()) {
+			   /*
+				* ImageProcessingDataBroadcaster--->ObjectLimiter--->Object
+				*/
 				make_edge(*IpDataBroadcasters[object.second->getMarkerType()], *objectLimiters[object.first]);
 				make_edge(*objectLimiters[object.first], object.second->getProcessorNode());
 			}
 			else {
+			   /*
+				* ImageProcessingDataBroadcaster--->Object
+				*/
 				make_edge(*IpDataBroadcasters[object.second->getMarkerType()], object.second->getProcessorNode());
 			}
+		   /*
+			* Object--->ObjectDataCollector
+			*/
 			make_edge(object.second->getProcessorNode(), dataCollector->getCollectorNode());
 			j++;
 		}
-		/*
-		trigger the camera when the final output is sent out
+	   /*
+		* ObjectDataCollector(1)--->FrameLimiter(decrement)
 		*/
 		make_edge(tbb::flow::output_port<1>(dataCollector->getCollectorNode()), frameLimiter.decrement);
-		/*
-		apply 3D reconstruction
-		insert a transformer module between object data collector and modules that receive its output
+	   /*
+		* apply 3D reconstruction
+		* insert a transformer module between object data collector and modules that receive its output
 		*/
 		if (config.find(TRANSFORMER) != config.not_found()) {
 			try {
@@ -282,25 +416,34 @@ void ComputerVision::startProcessing() {
 				std::cout << "Error occured while creating transformer! Error message: " << e.what() << std::endl;
 				return;
 			}
+		   /*
+			* ObjectDataCollector(0)--->Transformer--->Model
+			*/
 			make_edge(tbb::flow::output_port<0>(dataCollector->getCollectorNode()), transformer->getProcessorNode());
 			make_edge(transformer->getProcessorNode(), model->getProcessorNode());
 		}
 		else {
+		   /*
+			* ObjectDataCollector(0)--->Model
+			*/
 			make_edge(tbb::flow::output_port<0>(dataCollector->getCollectorNode()), model->getProcessorNode());
 		}
 		for (auto& sender : objectDataSenders) {
+		   /*
+			* Model--->ObjectDataSender
+			*/
 			make_edge(model->getProcessorNode(), sender->getProcessorNode());
 		}
-		/*
-		start the frame provider
+	   /*
+		* start the frame provider
 		*/
 		processing = true;
 		frameProvider->start();
 
 		std::cout << "Flow graph has been built successfully, start processing workflow" << std::endl;
 
-		/*
-		block until the processing workflow finishes
+	   /*
+		* block until the processing workflow finishes
 		*/
 		try {
 			this->wait_for_all();
@@ -318,7 +461,7 @@ void ComputerVision::startProcessing() {
 }
 
 void ComputerVision::stopProcessing() {
-	std::cout << "stop processing" << std::endl;
+	std::cout << "stop processing..." << std::endl;
 	processing = false;
 	frameProvider->stop();
 }

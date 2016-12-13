@@ -11,9 +11,6 @@
     "windowname": "camera",
     "delay": 0
   },
-  "transformer": {
-    "path_to_matrices": "C:/cv_build/Application/ex.json"
-  },
   "objects": [
     {
       "name": "human",

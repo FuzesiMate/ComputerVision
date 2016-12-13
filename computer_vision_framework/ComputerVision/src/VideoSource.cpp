@@ -37,7 +37,7 @@ bool VideoSource::provide(Frame& frame) {
 	currentTimestamp = std::chrono::duration_cast<std::chrono::milliseconds>(
 		currentTime.time_since_epoch()).count();
 
-	int i;
+	int i = 0;
 	for (auto& stream : streams) {
 		if (!stream.read(frame.images[i])) {
 			std::cout << "Failed to read the next image!" << std::endl;
@@ -46,13 +46,13 @@ bool VideoSource::provide(Frame& frame) {
 		}
 		i++;
 	}
-	int64_t currentFps;
+	float currentFps;
 	if ((currentTimestamp - lastTimestamp)>0) {
-		currentFps = roundf((float)1000 / (currentTimestamp - lastTimestamp));
+		currentFps = 1000.0f / (currentTimestamp - lastTimestamp);
 	}
 	std::stringstream fpsstring;
 	fpsstring << "Current fps: " << currentFps;
-	frame.fps = (int)currentFps;
+	frame.fps = currentFps;
 
 	for (auto& i : frame.images) {
 		cv::putText(i, fpsstring.str(), cv::Point(100, 100), cv::FONT_HERSHEY_SIMPLEX, 1.0, cv::Scalar(255, 255, 255), 2);

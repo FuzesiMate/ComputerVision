@@ -35,10 +35,11 @@ public:
 				int expo = parameters.get<int>(EXPOSURE);
 				float gain = parameters.get<float>(GAIN);
 
-				auto cam = std::unique_ptr<Camera>( new Camera(fps, expo, gain, numberOfCameras, g));
+				auto cam = std::make_unique<Camera>(fps, expo, gain, numberOfCameras, g);
 				if (!cam->initialize(providerType)) {
 					throw std::exception("Camera initialization failed");
 				}
+				//Move the pointer into the container
 				frameProvider = std::move(cam);
 			}
 			else if (providerType == FrameProviderType::VIDEO_SOURCE) {
@@ -50,11 +51,15 @@ public:
 					sources.push_back(source_item.second.get<std::string>(""));
 				}
 
-				auto vid = std::unique_ptr<VideoSource>(new VideoSource(fps, g));
+				auto vid = std::make_unique<VideoSource>(fps, g);
 				if (!vid->initialize(sources)) {
 					throw std::exception("Video player initialization failed");
 				}
+				//Move the pointer into the container
 				frameProvider = std::move(vid);
+			}
+			else {
+				throw std::exception("Not supported frame provider!");
 			}
 		}
 		catch (std::exception& e) {
