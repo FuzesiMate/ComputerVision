@@ -1,7 +1,7 @@
 {
   "frameprovider": {
-    "type": "ximea",
-    "fps": 20,
+    "type": "default",
+    "fps": 30,
     "exposure": 10000,
     "gain": 5,
     "number": 1

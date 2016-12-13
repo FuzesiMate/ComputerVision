@@ -7,7 +7,7 @@
 #include <chrono>
 
 
-void ObjectDataCollector::process(ObjectData objectData, CollectorNode::output_ports_type& output){
+void ObjectDataCollector::process(ObjectData objectData, collector_node::output_ports_type& output){
 	
 	dataBuffer[objectData.name].push_back(objectData);
 	bool readyToSend = true;
