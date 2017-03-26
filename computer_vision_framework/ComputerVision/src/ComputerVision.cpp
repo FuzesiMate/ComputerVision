@@ -116,26 +116,26 @@ bool ComputerVision::validateConfig() {
 
 		auto name = object.second.get<std::string>(NAME);
 		if (std::find(objectNames.begin() , objectNames.end() , name) != objectNames.end()) {
-			std::cout << "OBJECT CONFIGURATION ERROR: The name " << name << " is not unique!" << std::endl;
+			LOGGER::LOG(Severity::CRITICAL, "Object configuration", "The name of object "+name+" is not unique!");
 			validConfig = false;
 		}
 		objectNames.push_back(name);
 		
 		auto markers = object.second.get_child(MARKERS);
 		if (markers.empty()) {
-			std::cout << "OBJECT CONFIGURATION ERROR: The list of markers is empty! (Object: " << name<<")"<<std::endl;
+			LOGGER::LOG(Severity::CRITICAL, "Object configuration", "The list of markers in object "+name+" is empty!");
 			validConfig = false;
 		}
 		for (auto& marker : markers) {
 			auto markerName = marker.second.get<std::string>(NAME);
 			auto markerID = marker.second.get<std::string>(ID);
 			if (std::find(markerNames.begin(), markerNames.end(), markerName)!=markerNames.end()) {
-				std::cout << "OBJECT CONFIGURATION WARNING: The marker name " << markerName << " is not unique! (Object: " <<name<<")"<< std::endl;
+				LOGGER::LOG(Severity::WARNING, "Object configuration", "The marker name " + markerName + " in object " + name + " is not unique!");
 				validConfig = false;
 			}
 			markerNames.push_back(markerName);
 			if (std::find(markerIdentifiers.begin(), markerIdentifiers.end(), markerID) != markerIdentifiers.end()) {
-				std::cout << "OBJECT CONFIGURATION WARNING: The marker identifier " << markerID << " is not unique! (Object: " << name << ")" << std::endl;
+				LOGGER::LOG(Severity::CRITICAL, "Object configuration", "The marker identifier " + markerID + " of "+ markerName +" in object " + name + " is not unique!");
 				validConfig = false;
 			}
 			markerIdentifiers.push_back(markerID);
@@ -150,7 +150,7 @@ bool ComputerVision::validateConfig() {
 			}
 		}
 		if (!imageProcessorExists) {
-			std::cout << "OBJECT CONFIGURATION ERROR: The assigned ImageProcessor does not exist! (Object: " << name <<")"<<std::endl;
+			LOGGER::LOG(Severity::CRITICAL, "object configuration", "The image processor module ("+ markerType +") assigned to object "+name+" does not exist!");
 			validConfig = false;
 		}
 	}
@@ -167,7 +167,7 @@ bool ComputerVision::validateConfig() {
 			}
 		}
 		if (!hasAssignedObject) {
-			std::cout << "IMAGE PROCESSOR CONFIGURATION ERROR: No object is assigned! (ImageProcessor: " << ipType <<")"<< std::endl;
+			LOGGER::LOG(Severity::CRITICAL , "image processor configuration" , "No object assigned to "+ ipType +" image processor module!");
 			validConfig = false;
 		}
 	}
@@ -187,7 +187,7 @@ bool ComputerVision::validateConfig() {
 					}
 				}
 				if (!imageProcessorExists) {
-					std::cout << "DATA SENDER CONFIGURATION ERROR: The assigned ImageProcessor does not exist!" << std::endl;
+					LOGGER::LOG(Severity::CRITICAL, "data sender configuration", "The assigned " + assignedIpType + " image processor module does not exist!");
 					validConfig = false;
 				}
 			}
@@ -199,7 +199,7 @@ bool ComputerVision::validateConfig() {
 
 void ComputerVision::startProcessing() {
 
-	std::cout << "Building data flow graph..." << std::endl;
+	LOGGER::LOG(Severity::LOG, "Computer vision core", "Building data flow graph...");
 
 	if (initialized && !processing) {
 		/*
@@ -250,13 +250,13 @@ void ComputerVision::startProcessing() {
 					IpDataBroadcasters.emplace(type , std::make_unique<ip_data_broadcaster>(*this));
 				}
 				catch (std::exception& e) {
-					std::cout << "Error occured while creating image processor! Error message: " << e.what() << std::endl;
+					LOGGER::LOG(Severity::CRITICAL, "Image processor factory", e.what());
 					return;
 				}
 			}
 		}
 		catch (std::exception& e) {
-			std::cout << "Error occured while parsing image processor configuration! Error message: " << e.what() << std::endl;
+			LOGGER::LOG(Severity::CRITICAL , "JSON parser" , e.what());
 			return;
 		}
 		/*
@@ -292,7 +292,7 @@ void ComputerVision::startProcessing() {
 			}
 		}
 		catch (std::exception& e) {
-			std::cout << "Error occured while creating objects! Error message: " << e.what() << std::endl;
+			LOGGER::LOG(Severity::CRITICAL , "JSON parser" , e.what());
 			return;
 		}
 
@@ -316,7 +316,7 @@ void ComputerVision::startProcessing() {
 					visualizer = VisualizerFactory::createVisualizer(visConfig, *this);
 				}
 				catch (std::exception& e) {
-					std::cout << "Error occured while creating visualizer! Error message: " << e.what() << std::endl;
+					LOGGER::LOG(Severity::CRITICAL, "Visualizer factory" , e.what());
 					return;
 				}
 			   /*
@@ -329,7 +329,7 @@ void ComputerVision::startProcessing() {
 				make_edge(FrameModelDataJoiner, visualizer->getProcessorNode());
 			}
 			catch (std::exception& e) {
-				std::cout << "Error occured while reading visualizer configuration! Error message: " << e.what() << std::endl;
+				LOGGER::LOG(Severity::CRITICAL, "JSON parser", e.what());
 				return;
 			}
 		}
@@ -409,7 +409,7 @@ void ComputerVision::startProcessing() {
 				transformer->loadMatrices(pathToMatrices);
 			}
 			catch (std::exception& e) {
-				std::cout << "Error occured while creating transformer! Error message: " << e.what() << std::endl;
+				LOGGER::LOG(Severity::CRITICAL , "Transformer instantiation" , e.what());
 				return;
 			}
 		   /*
@@ -436,8 +436,7 @@ void ComputerVision::startProcessing() {
 		processing = true;
 		frameProvider->start();
 
-		std::cout << "Flow graph has been built successfully, start processing workflow" << std::endl;
-
+		LOGGER::LOG(Severity::LOG, "Computer vision core", "Flow graph has been built successfully, start processing workflow");
 	   /*
 		* block until the processing workflow finishes
 		*/
@@ -445,19 +444,19 @@ void ComputerVision::startProcessing() {
 			this->wait_for_all();
 		}
 		catch (int& ex) {
-			std::cout << "Error occured in the processing workflow! Error code: " << ex << std::endl;
+			LOGGER::LOG(Severity::CRITICAL, "Computer vision core", "Error occured during processing!");
 			this->reset();
 		}
 
-		std::cout << "Processing thread stopped!" << std::endl;
+		LOGGER::LOG(Severity::LOG, "Computer vision core", "Processing thread finished!");
 	}
 	else {
-		std::cout << "CV module is not initialized! Please initialize before start the processing workflow!" << std::endl;
+		LOGGER::LOG(Severity::CRITICAL, "Computer vision core", "The computer vision module is not initialized! Please initialize before start!");
 	}
 }
 
 void ComputerVision::stopProcessing() {
-	std::cout << "stop processing..." << std::endl;
+	LOGGER::LOG(Severity::LOG , "computer vision core" , "Stop processing...");
 	processing = false;
 	frameProvider->stop();
 }
@@ -475,7 +474,7 @@ void ComputerVision::reconfigure(const std::string configFilePath) {
 			}
 		}
 		catch (std::exception& e) {
-			std::cout << "Error occured while reconfiguring components! Error message: " << e.what() << std::endl;
+			LOGGER::LOG(Severity::WARNING, "Computer vision reconfigure",  e.what());
 		}
 	}
 }

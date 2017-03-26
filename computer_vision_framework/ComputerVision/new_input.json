@@ -1,10 +1,8 @@
-
+{
   "frameprovider": {
-    "type": "default",
-    "fps": 30,
-    "exposure": 10000,
-    "gain": 5,
-    "number": 1
+    "type": "network_camera",
+    "address":"tcp://localhost:5558",
+	"topic":"robot/video"
   },
   "visualizer": {
     "type": "simple",
@@ -14,7 +12,7 @@
   "objects": [
     {
       "name": "human",
-      "markertype": "circle",
+      "markertype": "aruco",
       "markers": [
         {
           "name": "left_hand",
@@ -49,9 +47,6 @@
     {
       "type": "aruco",
       "dictionary": 0
-    },
-    {
-      "type": "circle"
     }
   ],
   "datasenders": [

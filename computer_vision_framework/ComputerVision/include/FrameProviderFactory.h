@@ -5,17 +5,25 @@
 #include "VideoSource.h"
 #include "FrameProvider.h"
 #include "InitFailedException.h"
+#include "NetworkCamera.h"
 #include <boost/property_tree/ptree.hpp>
 
 #define TYPE 					"type"
+#define ADDRESS					"address"
+#define TOPIC					"topic"
 
 enum FrameProviderType {
 	XIMEA = CV_CAP_XIAPI,
 	DEFAULT = 0,
-	VIDEO_SOURCE = 1
+	VIDEO_SOURCE = 1,
+	NETWORK_CAMERA = 2
 };
 
-std::map<std::string, FrameProviderType> res_FrameProviderType = { {"ximea",FrameProviderType::XIMEA} ,{"default" , FrameProviderType::DEFAULT} ,{"video",FrameProviderType::VIDEO_SOURCE} };
+std::map<std::string, FrameProviderType> res_FrameProviderType = 
+		{ {"ximea",FrameProviderType::XIMEA} ,
+		{"default" , FrameProviderType::DEFAULT} ,
+		{"video",FrameProviderType::VIDEO_SOURCE},
+		{"network_camera" , FrameProviderType::NETWORK_CAMERA} };
 
 class FrameProviderFactory {
 public:
@@ -35,12 +43,12 @@ public:
 				int expo = parameters.get<int>(EXPOSURE);
 				float gain = parameters.get<float>(GAIN);
 
-				auto cam = std::make_unique<Camera>(fps, expo, gain, numberOfCameras, g);
-				if (!cam->initialize(providerType)) {
+				auto camera = std::make_unique<Camera>(fps, expo, gain, numberOfCameras, g);
+				if (!camera->initialize(providerType)) {
 					throw std::exception("Camera initialization failed");
 				}
 				//Move the pointer into the container
-				frameProvider = std::move(cam);
+				frameProvider = std::move(camera);
 			}
 			else if (providerType == FrameProviderType::VIDEO_SOURCE) {
 				
@@ -51,14 +59,24 @@ public:
 					sources.push_back(source_item.second.get<std::string>(""));
 				}
 
-				auto vid = std::make_unique<VideoSource>(fps, g);
-				if (!vid->initialize(sources)) {
+				auto videoSource = std::make_unique<VideoSource>(fps, g);
+				if (!videoSource->initialize(sources)) {
 					throw std::exception("Video player initialization failed");
 				}
 				//Move the pointer into the container
-				frameProvider = std::move(vid);
-			}
-			else {
+				frameProvider = std::move(videoSource);
+			}else if(providerType == FrameProviderType::NETWORK_CAMERA){
+				auto topic = parameters.get<std::string>(TOPIC);
+				auto address = parameters.get<std::string>(ADDRESS);
+
+				auto networkCamera = std::make_unique<NetworkCamera>(g);
+				if (!networkCamera->initializeNetwork(address, topic)) {
+					throw new std::exception("Network camera initialization failed!");
+				}
+
+				frameProvider = std::move(networkCamera);
+
+			}else {
 				throw std::exception("Not supported frame provider!");
 			}
 		}

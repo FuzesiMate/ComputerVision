@@ -5,18 +5,18 @@ project(${PROJECT_NAME})
 option(BUILD_APPLICATION "Build a sample application" OFF)
 option(BUILD_STEREOCALIBRATE "Build stereo calibrator application" OFF)
 
-option(INCLUDE_DIR "Directory that contains all include files")
-option(LIBRARY_DIR "Directory that contains all library files")
+set(INCLUDE_DIR ${USER_HOME}/include CACHE PATH "Directory that contains all include files")
+set(LIBRARY_DIR ${USER_HOME}/lib CACHE PATH "Directory that contains all library files")
 
-option(OPENCV_INCLUDE "OpenCV include directory")
-option(BOOST_INCLUDE "Boost include directory")
-option(ZEROMQ_INCLUDE "ZeroMQ include directory")
-option(TBB_INCLUDE "Intel Threading Building Blocks include directory")
+set(OPENCV_INCLUDE "" CACHE PATH "OpenCV include directory")
+set(BOOST_INCLUDE "" CACHE PATH "Boost include directory")
+set(ZEROMQ_INCLUDE "" CACHE PATH "ZeroMQ include directory")
+set(TBB_INCLUDE "" CACHE PATH "Intel Threading Building Blocks include directory")
 
-option(OPENCV_LIB "OpenCV include directory")
-option(BOOST_LIB "Boost include directory")
-option(ZEROMQ_LIB "ZeroMQ include directory")
-option(TBB_LIB "Intel Threading Building Blocks include directory")
+set(OPENCV_LIB "" CACHE PATH "OpenCV include directory")
+set(BOOST_LIB "" CACHE PATH "Boost include directory")
+set(ZEROMQ_LIB "" CACHE PATH "ZeroMQ include directory")
+set(TBB_LIB "" CACHE PATH "Intel Threading Building Blocks include directory")
 
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
@@ -63,6 +63,11 @@ endif(TBB_LIB)
 if(ZEROMQ_LIB)
 	link_directories(${ZEROMQ_LIB})
 endif(ZEROMQ_LIB)
+
+	link_directories("C:/XIMEA/API/x86")
+	include_directories("C:/XIMEA/API")
+	
+	include_directories("C:/Users/Mate/BME/onlab/external/cppcodec")
 
 add_subdirectory(ComputerVision)
 
