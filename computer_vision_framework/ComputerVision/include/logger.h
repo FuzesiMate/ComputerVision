@@ -1,4 +1,5 @@
 #ifndef LOGGER_H_
+#define LOGGER_H_
 #include <string>
 #include <iostream>
 #include <fstream>

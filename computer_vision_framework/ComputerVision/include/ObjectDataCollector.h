@@ -19,7 +19,7 @@
 
 using collector_node =  tbb::flow::multifunction_node<ObjectData, tbb::flow::tuple<ModelData, tbb::flow::continue_msg>, tbb::flow::queueing >;
 
-//#define LOG
+//#define LOG_DELAY
 
 class ObjectDataCollector {
 private:
@@ -30,7 +30,7 @@ private:
 	std::atomic<uint64_t> nextFrameIndex;
 	size_t numberOfObjects;
 	int64_t lastTimestamp;
-#ifdef LOG
+#ifdef LOG_DELAY
 	
 	std::ofstream ofs;
 #endif // LOG

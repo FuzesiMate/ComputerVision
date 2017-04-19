@@ -9,6 +9,7 @@
 #include <tbb/parallel_for.h>
 #include <tbb/concurrent_vector.h>
 #include <opencv2/aruco.hpp>
+#include <opencv2/imgproc.hpp>
 #include <chrono>
 
 //#define MEASURE_TIME
@@ -26,6 +27,13 @@ ImageProcessingData< CONFIG >ArucoImageProcessor<CONFIG>::process(Frame frame){
 	try{
 		tbb::parallel_for(size_t(0), frame.images.size(), size_t(1), [&](size_t i){
 
+			/*cv::Mat thresholded;
+			cv::cvtColor(frame.images[i], thresholded , CV_BGR2GRAY);
+			cv::adaptiveThreshold(thresholded, thresholded, 255, CV_ADAPTIVE_THRESH_GAUSSIAN_C, CV_THRESH_BINARY_INV, 11, 7);
+			cv::resize(thresholded, thresholded ,  thresholded.size() / 2);
+			cv::imshow("debug", thresholded);
+			cv::waitKey(5);
+			*/
 			std::vector< std::vector< cv::Point2f > > corners, rejected;
 			std::vector<int> identifiers;
 			try{

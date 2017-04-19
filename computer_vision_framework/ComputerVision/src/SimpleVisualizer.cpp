@@ -31,9 +31,14 @@ tbb::flow::continue_msg SimpleVisualizer::process(tbb::flow::tuple<Frame, ModelD
 		auto ts = std::chrono::duration_cast<std::chrono::milliseconds>(time.time_since_epoch()).count();
 		auto diff = ts - frameBuffer.begin()->timestamp;
 
+		/*
 		if ((delay - diff) <  delay) {
 			tbb::flow::continue_msg m;
 			return m;
+		}
+		*/
+		if ((delay - diff) > 0) {
+			std::this_thread::sleep_for(std::chrono::milliseconds(delay - diff));
 		}
 	}
 
@@ -48,21 +53,43 @@ tbb::flow::continue_msg SimpleVisualizer::process(tbb::flow::tuple<Frame, ModelD
 				if (markerData.second.tracked[i]) {
 					int x = static_cast<int>(markerData.second.screenPosition[i].x);
 					int y = static_cast<int>(markerData.second.screenPosition[i].y);
-					cv::putText(image, markerData.second.name, cv::Point(x, y), cv::FONT_HERSHEY_SIMPLEX, 1.0, cv::Scalar(255, 255, 255), 2);
+					
+					int baseline = 0;
+					cv::Size text_size = cv::getTextSize(markerData.second.name, cv::FONT_HERSHEY_COMPLEX, 2.0 , 4, &baseline);
+					cv::Rect background(x, y - text_size.height-baseline, text_size.width, text_size.height*2);
+
+					if (background.x + background.width > image.cols) {
+						background.x -= background.width;
+						x -= background.width;
+					}
+
+					if (background.y - background.height < 0) {
+						background.y += background.height/2;
+						y += background.height/2;
+					}
+					
+
+					//std::cout << background << std::endl;
+					cv::Mat ROI = image(background);
+					cv::Mat color(ROI.size(), CV_8UC3, cv::Scalar(235, 206, 135));
+					double alpha = 0.7;
+					cv::addWeighted(color, alpha, ROI, 1.0 - alpha, 0.0, ROI);
+					//cv:rectangle(image, background, cv::Scalar(255, 255, 255, 0.5), CV_FILLED);
+					cv::putText(image, markerData.second.name, cv::Point(x, y), cv::FONT_HERSHEY_SIMPLEX, 2.0, cv::Scalar(0, 0, 0), 4);
 				}
 			}
 		}
 
-		cv::resize(image, image, cv::Size(640, 480));
+		//cv::resize(image, image, cv::Size(image.cols/2, image.rows/2));
 		std::stringstream winname;
 		winname << windowName << i;
 		cv::imshow(winname.str(), image);
-		cv::waitKey(10);
 		i++;
 	}
-
+	
 	frameBuffer.erase(frameBuffer.begin());
 	dataBuffer.erase(dataBuffer.begin());
+	cv::waitKey(10);
 
 	tbb::flow::continue_msg msg;
 	return msg;

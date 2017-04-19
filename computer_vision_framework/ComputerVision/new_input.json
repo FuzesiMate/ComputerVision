@@ -1,44 +1,46 @@
 {
   "frameprovider": {
-    "type": "network_camera",
-    "address":"tcp://localhost:5558",
-	"topic":"robot/video"
+    "type": "external",
+	"number":1,
+    "exposure":-7,
+	"fps":10,
+	"gain":0,
+	"width":1920,
+	"height":1080
   },
   "visualizer": {
     "type": "simple",
     "windowname": "camera",
-    "delay": 0
+    "delay": 500
   },
   "objects": [
     {
-      "name": "human",
+      "name": "Taurus",
       "markertype": "aruco",
       "markers": [
         {
-          "name": "left_hand",
-          "id": 1
-        },
-        {
-          "name": "right_hand",
-          "id": 2
-        },
-        {
-          "name": "left_ankle",
-          "id": 3
-        },
-        {
-          "name": "right_ankle",
-          "id": 4
+          "name": "Taurus",
+          "id": 0
         }
       ]
     },
-    {
-      "name": "box",
+	{
+      "name": "SNCF",
       "markertype": "aruco",
       "markers": [
         {
-          "name": "box_marker",
-          "id": 10
+          "name": "SNCF",
+          "id": 1
+        }
+      ]
+    },
+	{
+      "name": "BR294",
+      "markertype": "aruco",
+      "markers": [
+        {
+          "name": "BR294",
+          "id": 12
         }
       ]
     }
@@ -47,19 +49,6 @@
     {
       "type": "aruco",
       "dictionary": 0
-    }
-  ],
-  "datasenders": [
-    {
-      "type": "zeromq",
-      "topic": "raw_aruco_data",
-      "bind_addresses": [ "tcp://*:5556" ],
-      "imageprocessor": "aruco"
-    },
-    {
-      "type": "zeromq",
-      "topic": "human_pose",
-      "bind_addresses": [ "tcp://*:5557" ]
     }
   ]
 }

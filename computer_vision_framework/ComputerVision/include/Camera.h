@@ -24,6 +24,8 @@
 #define GAIN					"gain"
 #define FPS						"fps"
 #define NUMBEROFCAMERAS 		"number"
+#define WIDTH					"width"
+#define HEIGHT					"height"
 
 class Camera: public FrameProvider {
 	int numberOfCameras;
@@ -44,7 +46,7 @@ public:
 
 	bool provide(Frame &frame);
 	void reconfigure(boost::property_tree::ptree config);
-	bool initialize(int cameraType);
+	bool initialize(int cameraType , cv::Size frameSize);
 
 	virtual ~Camera();
 };

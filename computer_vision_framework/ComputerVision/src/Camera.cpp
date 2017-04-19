@@ -1,5 +1,6 @@
 #include "Camera.h"
 #include <opencv2/imgproc.hpp>
+#include <opencv2/videoio.hpp>
 #include <fstream>
 #include <cmath>
 
@@ -23,15 +24,25 @@ bool Camera::provide(Frame &frame) {
 
 	frame.images = tbb::concurrent_vector<cv::Mat>(numberOfCameras);
 
+	//time = std::chrono::steady_clock::now();
+	
 	tbb::parallel_for(size_t(0), cameras.size(), [&](size_t i ) {
 		bool success = cameras[i].grab();
 		if(!success){
 			std::cout<<"grab failed"<<std::endl;
 		}
 	});
+
 	tbb::parallel_for(size_t(0), cameras.size(), [&](size_t i ) {
 		cameras[i].retrieve(frame.images[i]);
 	});
+	
+
+	//auto endTime = std::chrono::steady_clock::now();
+
+	//auto diff = endTime - time;
+	//std::cout << std::chrono::duration_cast<std::chrono::milliseconds>(diff).count()<<std::endl;
+
 	float currentFps;
 	if((currentTimestamp-lastTimestamp)>0){
 		currentFps = 1000.0f/(currentTimestamp-lastTimestamp);
@@ -44,9 +55,10 @@ bool Camera::provide(Frame &frame) {
 	ofs << fps << ";" << currentFps << std::endl;
 #endif	
 
-	for(auto& i : frame.images){
-		cv::putText(i , fpsstring.str() , cv::Point(100,100) , cv::FONT_HERSHEY_SIMPLEX ,1.0 ,cv::Scalar(255,255,255) , 2);
-	}
+	/*for(auto& i : frame.images){
+		cv::putText(i , fpsstring.str() , cv::Point(50,50) , cv::FONT_HERSHEY_SIMPLEX ,1.0 ,cv::Scalar(255,255,255) , 2);
+	}*/
+
 	frame.frameIndex = frameCounter;
 	frame.timestamp = currentTimestamp;
 	frameCounter++;
@@ -76,7 +88,7 @@ bool Camera::provide(Frame &frame) {
 	return providing;
 }
 
-bool Camera::initialize(int cameraType) {
+bool Camera::initialize(int cameraType , cv::Size frameSize) {
 
 #ifdef LOG
 	ofs.open("fps_ximea.csv");
@@ -84,12 +96,16 @@ bool Camera::initialize(int cameraType) {
 #endif
 	cameras = std::vector<cv::VideoCapture>(numberOfCameras);
 	for(int i = 0 ; i<numberOfCameras ; i++){
-		if(!cameras[i].open(cameraType+i)){
+		if(!cameras[i].open(cv::CAP_DSHOW + cameraType)){
 			return false;
 		}
+		cameras[i].set(cv::CAP_PROP_FOURCC, cv::VideoWriter::fourcc('M' , 'J' , 'P' , 'G'));
 		cameras[i].set(cv::CAP_PROP_XI_AEAG , 0.0);
-		cameras[i].set(cv::CAP_PROP_XI_EXPOSURE , exposure);
-		cameras[i].set(cv::CAP_PROP_XI_GAIN , gain);
+		cameras[i].set(cv::CAP_PROP_FPS , 30);
+		cameras[i].set(cv::CAP_PROP_EXPOSURE , exposure);
+		cameras[i].set(cv::CAP_PROP_GAIN , gain);
+		cameras[i].set(cv::CAP_PROP_FRAME_WIDTH, frameSize.width);
+		cameras[i].set(cv::CAP_PROP_FRAME_HEIGHT, frameSize.height);
 	}
 	return true;
 }
@@ -101,8 +117,8 @@ void Camera::reconfigure(boost::property_tree::ptree config) {
 
 	this->fps = fps;
 	for (auto& camera : cameras) {
-		camera.set(cv::CAP_PROP_XI_EXPOSURE, exp);
-		camera.set(cv::CAP_PROP_XI_GAIN, gain);
+		camera.set(cv::CAP_PROP_EXPOSURE, exp);
+		camera.set(cv::CAP_PROP_GAIN, gain);
 	}
 }
 

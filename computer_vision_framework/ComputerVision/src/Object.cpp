@@ -6,6 +6,7 @@
  */
 
 #include "Object.h"
+#include "logger.h"
 #include <iostream>
 
 template<typename CONFIG>
@@ -48,7 +49,7 @@ ObjectData Object<CONFIG>::process(ImageProcessingData<CONFIG> ipData){
 	objectData.timestamp = ipData.timestamp;
 
 	if (!objectData.alive) {
-		std::cout << "object " << name << " reached its detection limit!" << std::endl;
+		LOGGER::LOG(Severity::LOG, "Object processor", "Object "+name+" reached its detection limit!");
 	}
 	return objectData;
 }

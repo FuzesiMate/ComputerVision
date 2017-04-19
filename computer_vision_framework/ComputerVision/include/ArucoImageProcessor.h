@@ -24,7 +24,13 @@ private:
 	std::mutex lock;
 
 public:
-	ArucoImageProcessor(tbb::flow::graph& g) :ImageProcessor<CONFIG>(g), dictionary(cv::aruco::getPredefinedDictionary(cv::aruco::PREDEFINED_DICTIONARY_NAME(0))), detectorParams(cv::aruco::DetectorParameters::create()), prevFrameIdx(0) {};
+	ArucoImageProcessor(tbb::flow::graph& g) :ImageProcessor<CONFIG>(g), dictionary(cv::aruco::getPredefinedDictionary(cv::aruco::PREDEFINED_DICTIONARY_NAME(0))), detectorParams(cv::aruco::DetectorParameters::create()), prevFrameIdx(0) {
+		detectorParams->adaptiveThreshWinSizeMin = 11;
+		detectorParams->adaptiveThreshWinSizeMax = 31;
+		detectorParams->adaptiveThreshWinSizeStep = 10;
+		detectorParams->adaptiveThreshConstant = 10;
+		detectorParams->doCornerRefinement = true;
+	};
 	ImageProcessingData<CONFIG> process(Frame frame);
 
 	virtual void reconfigure(boost::property_tree::ptree config);

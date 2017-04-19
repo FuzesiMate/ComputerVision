@@ -6,6 +6,9 @@
 #include "DataTypes.h"
 #include <zmq.hpp>
 
+#define ADDRESS					"address"
+#define TOPIC					"topic"
+
 class NetworkCamera :
 	public FrameProvider
 {

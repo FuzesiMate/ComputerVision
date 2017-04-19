@@ -5,6 +5,7 @@
 #include <thread>
 #include <mutex>
 #include <chrono>
+#include <iostream>
 
 
 void ObjectDataCollector::process(ObjectData objectData, collector_node::output_ports_type& output){
@@ -45,14 +46,14 @@ void ObjectDataCollector::process(ObjectData objectData, collector_node::output_
 			for (auto& dead : deadObjects) {
 				dataBuffer.erase(dead);
 			}
-#ifdef LOG
+#ifdef LOG_DELAY
 			auto currentTime = std::chrono::steady_clock::now();
 			auto currentTimeStamp = std::chrono::duration_cast<std::chrono::milliseconds>(currentTime.time_since_epoch()).count();
 			auto delay = currentTimeStamp - modelData.timestamp;
 
 			auto processingCurrentFps = roundf((float)1000 / (currentTimeStamp-lastTimestamp));
 
-			ofs << delay << ";" << processingCurrentFps << std::endl;
+			std::cout<< delay << " ; " << processingCurrentFps << std::endl;
 
 			lastTimestamp = currentTimeStamp;
 #endif
