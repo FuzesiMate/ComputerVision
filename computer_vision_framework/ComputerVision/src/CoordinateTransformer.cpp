@@ -13,15 +13,17 @@ bool CoordinateTransformer::loadMatrices(std::string path){
 	cv::FileStorage file;
 	try {
 		if (!file.open(path, cv::FileStorage::READ)) {
-			std::cout << "The file containing the matrices is missing!" << std::endl;
+			throw std::exception("The file containing the matrices is missing!");
 			canTransform = false;
 			return false;
 		}
 	}
 	catch (std::exception& e) {
-		std::cout << "The file containing the matrices is invalid! Error message: " <<e.what()<< std::endl;
+		
 		file.release();
 		canTransform = false;
+
+		throw e;
 		return false;
 	}
 	try {
@@ -46,9 +48,7 @@ bool CoordinateTransformer::loadMatrices(std::string path){
 		file.release();
 	}
 	catch (std::exception& e) {
-		std::cout << "An error occured while loading camera matrices! "
-				  << "The transformer is not able to reconstruct 3D positions!"
-				  <<"Error message: " << e.what() << std::endl;
+		throw e;
 		canTransform = false;
 		return false;
 	}

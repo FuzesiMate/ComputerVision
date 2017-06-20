@@ -27,6 +27,7 @@
 
 #define FRAME_PROVIDER			"frameprovider"
 #define VISUALIZER				"visualizer"
+#define POSTPROCESSOR			"postprocessor"
 #define OBJECTS					"objects"
 #define TYPE					"type"
 #define NUMBEROFCAMERAS 		"number"
@@ -37,7 +38,6 @@
 #define IMAGEPROCESSOR			"imageprocessor"
 #define SHOW_WINDOW				"show_window"
 #define DATA_SENDERS			"datasenders"
-#define PATH_TO_MATRICES 		"path_to_matrices"
 #define TRANSFORMER				"transformer"
 #define NAME					"name"
 #define LIMIT					"limit"

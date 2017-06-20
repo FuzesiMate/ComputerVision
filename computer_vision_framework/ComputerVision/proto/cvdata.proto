@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package cvdata;
+
+message ObjectPositions{
+	repeated Object objects = 1;
+	int64 timestamp = 2;
+	int64 frameindex = 3;
+}
+
+message Object{
+	string name = 1;
+	repeated Marker markers = 2;
+}
+
+message Marker{
+	string name = 1;
+	ThreeDPosition realposition = 2;
+	repeated TwoDPosition screenPositions = 3;
+	bool tracked = 4;
+}
+
+message ThreeDPosition{
+	double x = 1;
+	double y = 2;
+	double z = 3;
+}
+
+message TwoDPosition{
+	double x = 1;
+	double y = 2;
+}

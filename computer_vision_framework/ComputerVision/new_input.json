@@ -1,12 +1,12 @@
 {
   "frameprovider": {
-    "type": "external",
+    "type": "default",
 	"number":1,
-    "exposure":-7,
-	"fps":10,
-	"gain":0,
-	"width":1920,
-	"height":1080
+    "exposure":100000,
+	"fps":20,
+	"gain":10,
+	"width":640,
+	"height":480
   },
   "visualizer": {
     "type": "simple",
@@ -43,12 +43,41 @@
           "id": 12
         }
       ]
-    }
+    },
+	{
+		"name":"table",
+		"markertype":"aruco",
+		"markers": [
+        {
+          "name": "right top",
+          "id": 4
+        },
+		{
+          "name": "left top",
+          "id": 6
+        },
+		{
+          "name": "right bottom",
+          "id": 2
+        },
+		{
+          "name": "left bottom",
+          "id": 3
+        }
+      ]
+	}
 	],
   "imageprocessors": [
     {
       "type": "aruco",
       "dictionary": 0
     }
+  ],
+  "datasenders":[
+	{
+		"type":"zeromq",
+		"bind_addresses":["tcp://127.0.0.1:5556"],
+		"topic":"random"
+	}
   ]
 }

@@ -13,6 +13,7 @@
 #include "Camera.h"
 #include <tbb/concurrent_unordered_map.h>
 #include <tbb/flow_graph.h>
+#include "PostProcessor.h"
 
 struct Matrices{
 	tbb::concurrent_vector<cv::Mat> cameraMatrix;
@@ -21,18 +22,18 @@ struct Matrices{
 	tbb::concurrent_vector<cv::Mat> rectificationMatrix;
 };
 
-class CoordinateTransformer: public Processor<ModelData, ModelData ,tbb::flow::queueing> {
+class CoordinateTransformer: public PostProcessor {
 private:
 	Matrices matrices;
 	bool canTransform;
 public:
-	CoordinateTransformer(tbb::flow::graph& g):Processor<ModelData,ModelData,tbb::flow::queueing>(g , tbb::flow::unlimited),canTransform(false){};
+	CoordinateTransformer(tbb::flow::graph& g):PostProcessor(g),canTransform(false){};
 
 	bool loadMatrices(std::string path);
 
 	ModelData process(ModelData ipData);
 
-	virtual ~CoordinateTransformer()=default;
+	~CoordinateTransformer()=default;
 };
 
 #endif /* COORDINATETRANSFORMER_H_ */

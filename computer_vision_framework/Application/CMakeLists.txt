@@ -12,8 +12,10 @@ SET(CV_RELEASE "${CMAKE_BINARY_DIR}/ComputerVision/Release/ComputerVision.lib")
 target_link_libraries(${PROJECT_NAME} debug ${CV_DEBUG})
 target_link_libraries(${PROJECT_NAME} optimized ${CV_RELEASE})
 
-SET(DEBUG_LIBS opencv_core320d opencv_highgui320d opencv_calib3d320d opencv_videoio320d opencv_imgproc320d opencv_aruco320d xiapi32 tbb_debug tbbmalloc_debug tbbmalloc_proxy_debug libzmq_debug ws2_32)
-SET(RELEASE_LIBS opencv_imgcodecs320 opencv_core320 opencv_highgui320 opencv_calib3d320 opencv_videoio320 opencv_imgproc320 opencv_aruco320 xiapi32 tbb tbbmalloc tbbmalloc_proxy libzmq ws2_32 paho-mqtt3c)
+SET(DEBUG_LIBS opencv_core320d opencv_highgui320d opencv_calib3d320d opencv_videoio320d opencv_imgproc320d
+	opencv_aruco320d xiapi32 tbb_debug tbbmalloc_debug tbbmalloc_proxy_debug libzmq_debug ws2_32)
+SET(RELEASE_LIBS opencv_imgcodecs320 opencv_core320 opencv_highgui320 opencv_calib3d320 opencv_videoio320 
+	opencv_imgproc320 opencv_aruco320 xiapi32 tbb tbbmalloc tbbmalloc_proxy libzmq ws2_32 paho-mqtt3c libprotobuf)
 
 foreach (_dlib ${DEBUG_LIBS})
 

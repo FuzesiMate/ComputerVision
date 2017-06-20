@@ -14,12 +14,14 @@ set(BOOST_INCLUDE "" CACHE PATH "Boost include directory")
 set(ZEROMQ_INCLUDE "" CACHE PATH "ZeroMQ include directory")
 set(MQTT_INCLUDE "" CACHE PATH "MQTT include directory")
 set(TBB_INCLUDE "" CACHE PATH "Intel Threading Building Blocks include directory")
+set(PROTOBUF_INCLUDE "" CACHE PATH "Protobuf include directory")
 
 set(OPENCV_LIB "" CACHE PATH "OpenCV library directory")
 set(BOOST_LIB "" CACHE PATH "Boost library directory")
 set(ZEROMQ_LIB "" CACHE PATH "ZeroMQ library directory")
 set(MQTT_LIB "" CACHE PATH "MQTT library directory")
 set(TBB_LIB "" CACHE PATH "Intel Threading Building Blocks library directory")
+set(PROTOBUF_LIB "" CACHE PATH "Protobuf library directory")
 
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
@@ -45,6 +47,10 @@ endif(TBB_INCLUDE)
 if(ZEROMQ_INCLUDE)
 	include_directories(${ZEROMQ_INCLUDE})
 endif(ZEROMQ_INCLUDE)
+
+if(PROTOBUF_INCLUDE)
+	include_directories(${PROTOBUF_INCLUDE})
+endif(PROTOBUF_INCLUDE)
 
 if(MQTT_INCLUDE)
 	include_directories(${MQTT_INCLUDE})
@@ -73,6 +79,10 @@ endif(ZEROMQ_LIB)
 if(MQTT_LIB)
 	link_directories(${MQTT_LIB})
 endif(MQTT_LIB)
+
+if(PROTOBUF_LIB)
+	link_directories(${PROTOBUF_LIB})
+endif(PROTOBUF_LIB)
 
 	link_directories("C:/XIMEA/API/x86")
 	include_directories("C:/XIMEA/API")

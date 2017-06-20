@@ -1,4 +1,5 @@
 
+#include "cvdata.pb.h"
 #include <winsock2.h>
 #include "ComputerVision.h"
 #include <boost/property_tree/json_parser.hpp>
@@ -7,14 +8,16 @@
 #include <exception>
 #include "DataTypes.h"
 #include "ImageProcessorFactory.h"
-#include "DataSenderFactory.h"
 #include "ObjectDataCollector.h"
 #include "FrameProvider.h"
 #include "FrameProviderFactory.h"
 #include "CoordinateTransformer.h"
 #include "VisualizerFactory.h"
+#include "PostProcessorFactory.h"
 #include "logger.h"
 #include "Object.cpp"
+
+#include "DataSenderFactory.h"
 
 bool ComputerVision::initialize(const std::string configFilePath) {
 
@@ -229,7 +232,7 @@ void ComputerVision::startProcessing() {
 		std::unique_ptr<Visualizer> visualizer;
 
 		//transformer performs 2D-3D transformation from a stereo point
-		std::unique_ptr<CoordinateTransformer> transformer;
+		std::unique_ptr<PostProcessor> postProcessor;
 
 		//data collector collects object data that corresponds to the same frame
 		std::unique_ptr<ObjectDataCollector> dataCollector;
@@ -401,22 +404,20 @@ void ComputerVision::startProcessing() {
 		* apply 3D reconstruction
 		* insert a transformer module between object data collector and modules that receive its output
 		*/
-		if (config.find(TRANSFORMER) != config.not_found()) {
+		if (config.find(POSTPROCESSOR) != config.not_found()) {
 			try {
-				auto transformerConfig = config.get_child(TRANSFORMER);
-				auto pathToMatrices = transformerConfig.get<std::string>(PATH_TO_MATRICES);
-				transformer = std::unique_ptr<CoordinateTransformer>(new CoordinateTransformer(*this));
-				transformer->loadMatrices(pathToMatrices);
+				auto postProcessorConfig = config.get_child(POSTPROCESSOR);
+				postProcessor = PostProcessorFactory::createPostProcessor(postProcessorConfig, *this);
 			}
 			catch (std::exception& e) {
-				LOGGER::LOG(Severity::CRITICAL , "Transformer instantiation" , e.what());
+				LOGGER::LOG(Severity::CRITICAL , "Post processor Instantiation" , e.what());
 				return;
 			}
 		   /*
 			* ObjectDataCollector(0)--->Transformer--->Model
 			*/
-			make_edge(tbb::flow::output_port<0>(dataCollector->getCollectorNode()), transformer->getProcessorNode());
-			make_edge(transformer->getProcessorNode(), model->getProcessorNode());
+			make_edge(tbb::flow::output_port<0>(dataCollector->getCollectorNode()), postProcessor->getProcessorNode());
+			make_edge(postProcessor->getProcessorNode(), model->getProcessorNode());
 		}
 		else {
 		   /*
