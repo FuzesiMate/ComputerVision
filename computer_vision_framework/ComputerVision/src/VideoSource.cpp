@@ -10,6 +10,8 @@ bool VideoSource::initialize(std::vector<std::string> sources) {
 
 	for (auto source : sources) {
 		cv::VideoCapture video(source);
+		video.set(cv::CAP_PROP_FRAME_WIDTH, 1366);
+		video.set(cv::CAP_PROP_FRAME_HEIGHT, 768);
 		if (video.isOpened()) {
 			streams.push_back(video);
 		}

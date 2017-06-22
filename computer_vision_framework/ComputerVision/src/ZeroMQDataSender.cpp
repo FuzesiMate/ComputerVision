@@ -7,9 +7,6 @@
 
 #include "ZeroMQDataSender.h"
 #include <zmq_addon.hpp>
-#include "cvdata.pb.h"
-
-
 #include <iostream>
 
 template<typename INPUT>
@@ -20,9 +17,6 @@ tbb::flow::continue_msg ZeroMQDataSender<INPUT>::process(INPUT data) {
 	 *The template type must implement the toJSON method which returns a string
 	 *containing the JSON object that will be published
 	 */
-
-	//TODO fill protobuf message and send it
-	cvdata::ObjectPositions objectPositions;
 
 	std::string output = data.toJSON();
 	if (!output.empty()){

@@ -12,8 +12,8 @@
 #include "IRTDImageProcessor.cpp"
 #include "CircleDetector.cpp"
 
-#define TYPE			"type"
-#define DICTIONARY		"dictionary"
+constexpr auto TYPE			= "type";
+constexpr auto DICTIONARY	= "dictionary";
 
 enum MarkerType {
 	ARUCO,

@@ -14,8 +14,6 @@ bool CoordinateTransformer::loadMatrices(std::string path){
 	try {
 		if (!file.open(path, cv::FileStorage::READ)) {
 			throw std::exception("The file containing the matrices is missing!");
-			canTransform = false;
-			return false;
 		}
 	}
 	catch (std::exception& e) {

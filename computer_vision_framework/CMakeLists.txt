@@ -91,6 +91,8 @@ include_directories("C:/Users/Mate/BME/onlab/external/cppcodec")
 
 add_subdirectory(ComputerVision)
 
+add_subdirectory(MonoCalibrate)
+
 if(BUILD_APPLICATION)
 add_subdirectory(Application)
 add_dependencies(Application ComputerVision)

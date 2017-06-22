@@ -1,6 +1,5 @@
 #include "MQTTDataSender.h"
 #include <iostream>
-#include "cvdata.pb.h"
 
 template<typename INPUT>
 MQTTDataSender<INPUT>::MQTTDataSender(std::string topic, std::string brokerUrl, std::string clientID ,tbb::flow::graph& g)
@@ -46,11 +45,8 @@ tbb::flow::continue_msg MQTTDataSender<INPUT>::process(INPUT modelData)
 	MQTTClient_message dataMessage = MQTTClient_message_initializer;
 	MQTTClient_deliveryToken token;
 
-	//TODO fill protobuf message and send it
-	cvdata::ObjectPositions objectPositions;
-
-	std::string data = modelData.toJSON();
-	dataMessage.payload =(void*)(data.c_str());
+	std::string data = modelData.toProto();
+	dataMessage.payload = (void*)(data.c_str());
 	dataMessage.payloadlen = data.length();
 	dataMessage.qos = 0;
 	dataMessage.retained = 0;

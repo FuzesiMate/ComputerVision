@@ -6,6 +6,9 @@
 #include <tbb/concurrent_vector.h>
 #include <tbb/concurrent_unordered_map.h>
 #include <opencv2/core/types.hpp>
+#include "ComputerVisionObjectPositions.pb.h"
+#include "Message.pb.h"
+#include "Enums.pb.h"
 
 #ifndef DATA_TYPES_H
 #define DATA_TYPES_H
@@ -29,6 +32,11 @@ template <typename CONFIG> struct ImageProcessingData {
 	uint64_t timestamp;
 	uint64_t frameIndex;
 	//serialize the data into a json object
+	std::string toProto() {
+		modes3::protobuf::ComputerVisionObjectPositions temp;
+		return temp.default_instance().SerializeAsString();
+	}
+
 	std::string toJSON() {
 		std::stringstream json;
 		std::map<int, std::vector<cv::Point2f> > markerPositions;
@@ -95,6 +103,56 @@ struct ModelData {
 	tbb_map<std::string , ObjectData> objectData;
 	uint64_t timestamp;
 	uint64_t frameIndex;
+
+	std::string toProto() {
+		auto objectPositionsProto = 
+				std::make_unique<modes3::protobuf::ComputerVisionObjectPositions>();
+
+		objectPositionsProto->set_frameindex(frameIndex);
+		objectPositionsProto->set_timestamp(timestamp);
+		auto& objectsMap = *objectPositionsProto->mutable_physicalobjects();
+
+		for (auto& object : objectData) {
+			modes3::protobuf::PhysicalObject objectProto;
+			objectProto.set_name(object.second.name);
+
+			auto& markerMap = *objectProto.mutable_markers();
+			
+			for (auto& marker : object.second.markerData) {
+				modes3::protobuf::Marker markerProto;
+				markerProto.set_name(marker.second.name);
+
+				for (auto tracked : marker.second.tracked) {
+					markerProto.add_tracked(tracked);
+				}
+
+				for (auto screenPosition : marker.second.screenPosition) {
+					auto screenPositionProto = markerProto.add_screenpositions();
+					screenPositionProto->set_x(screenPosition.x);
+					screenPositionProto->set_y(screenPosition.y);
+
+				}
+				
+				std::unique_ptr<modes3::protobuf::ThreeDPosition> realPositionProto = 
+												std::make_unique< modes3::protobuf::ThreeDPosition>();
+				realPositionProto->set_x(marker.second.realPosition.x);
+				realPositionProto->set_y(marker.second.realPosition.y);
+				realPositionProto->set_x(0);
+
+				markerProto.set_allocated_realposition(realPositionProto.release());
+				markerMap[marker.second.name] = markerProto;
+			}
+			objectsMap[object.second.name] = objectProto;
+		}
+
+		modes3::protobuf::Message message;
+		message.set_type(modes3::protobuf::MessageType::COMPUTER_VISION_OBJECT_POSITIONS);
+		message.set_allocated_computervisionobjectpositions(objectPositionsProto.release());
+
+		return message.SerializeAsString();
+	}
+
+
 	//serialize the data into a json object
 	std::string toJSON() {
 		std::stringstream json;

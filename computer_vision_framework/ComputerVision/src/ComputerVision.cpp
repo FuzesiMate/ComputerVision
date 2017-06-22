@@ -1,5 +1,4 @@
 
-#include "cvdata.pb.h"
 #include <winsock2.h>
 #include "ComputerVision.h"
 #include <boost/property_tree/json_parser.hpp>
@@ -50,7 +49,7 @@ bool ComputerVision::initialize(const std::string configFilePath) {
 		frameProvider.reset();
 		try {
 			auto cameraConfig = config.get_child(FRAME_PROVIDER);
-			auto type = cameraConfig.get<std::string>(TYPE);
+			auto type = cameraConfig.get<std::string>("type");
 
 			try {
 				frameProvider = FrameProviderFactory::createFrameProvider(cameraConfig, *this);

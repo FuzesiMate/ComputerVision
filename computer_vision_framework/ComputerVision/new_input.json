@@ -1,12 +1,13 @@
 {
   "frameprovider": {
-    "type": "default",
+    "type": "external",
+	"sources":["C:/Users/Mate/Pictures/Camera Roll/WIN_20170622_11_06_23_Pro.jpg"],
 	"number":1,
-    "exposure":100000,
-	"fps":20,
-	"gain":10,
-	"width":640,
-	"height":480
+    "exposure":-7,
+	"fps":30,
+	"gain":0,
+	"width":1920,
+	"height":1080
   },
   "visualizer": {
     "type": "simple",
@@ -20,7 +21,7 @@
       "markers": [
         {
           "name": "Taurus",
-          "id": 0
+          "id": 19
         }
       ]
     },
@@ -30,7 +31,7 @@
       "markers": [
         {
           "name": "SNCF",
-          "id": 1
+          "id": 13
         }
       ]
     },
@@ -40,7 +41,7 @@
       "markers": [
         {
           "name": "BR294",
-          "id": 12
+          "id": 17
         }
       ]
     },
@@ -50,19 +51,19 @@
 		"markers": [
         {
           "name": "right top",
-          "id": 4
+          "id": 18
         },
 		{
           "name": "left top",
-          "id": 6
+          "id": 10
         },
 		{
           "name": "right bottom",
-          "id": 2
+          "id": 15
         },
 		{
           "name": "left bottom",
-          "id": 3
+          "id": 7
         }
       ]
 	}
@@ -73,11 +74,8 @@
       "dictionary": 0
     }
   ],
-  "datasenders":[
-	{
-		"type":"zeromq",
-		"bind_addresses":["tcp://127.0.0.1:5556"],
-		"topic":"random"
-	}
-  ]
+  "postprocessor":{
+	"type":"modes_postprocessor",
+	"path_to_matrices":"C:/Users/Mate/BME/onlab/git/ComputerVision/computer_vision_framework/MonoCalibrate/matrices5.yml"
+  }
 }

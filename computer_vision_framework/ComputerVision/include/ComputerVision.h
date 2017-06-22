@@ -25,34 +25,33 @@
 #include "DataSender.h"
 #include "DataTypes.h"
 
-#define FRAME_PROVIDER			"frameprovider"
-#define VISUALIZER				"visualizer"
-#define POSTPROCESSOR			"postprocessor"
-#define OBJECTS					"objects"
-#define TYPE					"type"
-#define NUMBEROFCAMERAS 		"number"
-#define EXPOSURE				"exposure"
-#define GAIN					"gain"
-#define FPS						"fps"
-#define IMAGEPROCESSORS			"imageprocessors"
-#define IMAGEPROCESSOR			"imageprocessor"
-#define SHOW_WINDOW				"show_window"
-#define DATA_SENDERS			"datasenders"
-#define TRANSFORMER				"transformer"
-#define NAME					"name"
-#define LIMIT					"limit"
-#define MARKER_TYPE				"markertype"
-#define ID						"id"
-#define MARKERS					"markers"
+constexpr auto FRAME_PROVIDER	=	"frameprovider";
+constexpr auto VISUALIZER		=	"visualizer";
+constexpr auto POSTPROCESSOR	= "postprocessor";
+constexpr auto OBJECTS			= "objects";
+constexpr auto NUMBEROFCAMERAS  = "number";
+constexpr auto EXPOSURE			= "exposure";
+constexpr auto GAIN				= "gain";
+constexpr auto FPS				= "fps";
+constexpr auto IMAGEPROCESSORS  = "imageprocessors";
+constexpr auto IMAGEPROCESSOR   = "imageprocessor";
+constexpr auto SHOW_WINDOW		= "show_window";
+constexpr auto DATA_SENDERS		= "datasenders";
+constexpr auto TRANSFORMER		= "transformer";
+constexpr auto NAME				= "name";
+constexpr auto LIMIT			= "limit";
+constexpr auto MARKER_TYPE		= "markertype";
+constexpr auto ID				= "id";
+constexpr auto MARKERS			= "markers";
 
-#define DEFAULT_CAMERA	0
+constexpr auto DEFAULT_CAMERA	= 0;
 
-using t_cfg					= TEMPLATE_CONFIG<tbb_vector<cv::Point2f>, tbb_vector<int > >;
+using t_cfg						= TEMPLATE_CONFIG<tbb_vector<cv::Point2f>, tbb_vector<int > >;
 
-using ip_data_sequencer		= tbb::flow::sequencer_node<ImageProcessingData<t_cfg> >;
-using ip_data_broadcaster	= tbb::flow::broadcast_node<ImageProcessingData<t_cfg> >;
-using frame_limiter			= tbb::flow::limiter_node<Frame >;
-using object_limiter		= tbb::flow::limiter_node<ImageProcessingData<t_cfg> >;
+using ip_data_sequencer			= tbb::flow::sequencer_node<ImageProcessingData<t_cfg> >;
+using ip_data_broadcaster		= tbb::flow::broadcast_node<ImageProcessingData<t_cfg> >;
+using frame_limiter				= tbb::flow::limiter_node<Frame >;
+using object_limiter			= tbb::flow::limiter_node<ImageProcessingData<t_cfg> >;
 
 class ComputerVision  :public tbb::flow::graph {
 private:
