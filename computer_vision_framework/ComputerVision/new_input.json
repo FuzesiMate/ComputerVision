@@ -1,6 +1,6 @@
 {
   "frameprovider": {
-    "type": "external",
+    "type": "default",
 	"sources":["C:/Users/Mate/Pictures/Camera Roll/WIN_20170622_11_06_23_Pro.jpg"],
 	"number":1,
     "exposure":-7,

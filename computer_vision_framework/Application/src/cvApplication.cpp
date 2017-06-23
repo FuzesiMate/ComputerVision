@@ -7,7 +7,7 @@
 //============================================================================
 
 #include <iostream>
-#include "ComputerVision.h"
+#include "core/ComputerVision.h"
 #include <iostream>
 #include <fstream>
 #include <tbb/compat/thread>

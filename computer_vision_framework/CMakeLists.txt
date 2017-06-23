@@ -5,6 +5,7 @@ project(${PROJECT_NAME})
 option(BUILD_APPLICATION "Build a sample application" OFF)
 option(BUILD_STEREOCALIBRATE "Build stereo calibrator application" OFF)
 option(BUILD_ARUCO_GENERATOR "Build Aruco marker generator application" OFF)
+option(BUILD_MONOCALIBRATE "Build mono camera calibrator application" OFF)
 
 set(INCLUDE_DIR ${USER_HOME}/include CACHE PATH "Directory that contains all include files")
 set(LIBRARY_DIR ${USER_HOME}/lib CACHE PATH "Directory that contains all library files")
@@ -27,6 +28,8 @@ set(PROTOBUF_LIB "" CACHE PATH "Protobuf library directory")
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 include_directories(${CMAKE_SOURCE_DIR}/ComputerVision/include)
+include_directories(${CMAKE_SOURCE_DIR}/ComputerVision/src)
+include_directories(${CMAKE_SOURCE_DIR}/ComputerVision/include/core/data/proto)
 
 if(INCLUDE_DIR)
 	include_directories(${INCLUDE_DIR})
@@ -85,13 +88,14 @@ if(PROTOBUF_LIB)
 endif(PROTOBUF_LIB)
 
 	link_directories("C:/XIMEA/API/x86")
-	include_directories("C:/XIMEA/API")
 	
 include_directories("C:/Users/Mate/BME/onlab/external/cppcodec")
 
 add_subdirectory(ComputerVision)
 
+if(BUILD_MONOCALIBRATE)
 add_subdirectory(MonoCalibrate)
+endif (BUILD_MONOCALIBRATE)
 
 if(BUILD_APPLICATION)
 add_subdirectory(Application)
