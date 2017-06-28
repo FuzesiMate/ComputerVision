@@ -3,7 +3,7 @@
     "type": "default",
 	"sources":["C:/Users/Mate/Pictures/Camera Roll/WIN_20170622_11_06_23_Pro.jpg"],
 	"number":1,
-    "exposure":-7,
+    "exposure":10000,
 	"fps":30,
 	"gain":0,
 	"width":1920,

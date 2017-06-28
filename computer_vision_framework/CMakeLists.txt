@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.4)
+cmake_minimum_required(VERSION 3.7)
 SET(PROJECT_NAME ComputerVisionFrameWork)
 project(${PROJECT_NAME})
 
@@ -30,6 +30,14 @@ SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 include_directories(${CMAKE_SOURCE_DIR}/ComputerVision/include)
 include_directories(${CMAKE_SOURCE_DIR}/ComputerVision/src)
 include_directories(${CMAKE_SOURCE_DIR}/ComputerVision/include/core/data/proto)
+include_directories(${CMAKE_SOURCE_DIR}/external/cppcodec)
+#include_directories(${CMAKE_BINARY_DIR}/external/tbb/tbb/src/intel_tbb/include)
+
+#include_directories(${CMAKE_BINARY_DIR}/external/build/include)
+
+#link_directories(${CMAKE_BINARY_DIR}/external/build/x86/vc14/lib)
+#link_directories(${CMAKE_BINARY_DIR}/external/build/lib)
+#link_directories(${CMAKE_BINARY_DIR}/external/tbb/tbb/src/intel_tbb/lib/ia32/vc14)
 
 if(INCLUDE_DIR)
 	include_directories(${INCLUDE_DIR})
@@ -87,11 +95,17 @@ if(PROTOBUF_LIB)
 	link_directories(${PROTOBUF_LIB})
 endif(PROTOBUF_LIB)
 
-	link_directories("C:/XIMEA/API/x86")
-	
-include_directories("C:/Users/Mate/BME/onlab/external/cppcodec")
-
 add_subdirectory(ComputerVision)
+
+#add_subdirectory(external/opencv)
+#add_subdirectory(external/protobuf)
+#add_subdirectory(external/tbb)
+
+#add_dependencies(ComputerVision opencv)
+#add_dependencies(ComputerVision intel_tbb)
+#add_dependencies(ComputerVision protobuf)
+
+
 
 if(BUILD_MONOCALIBRATE)
 add_subdirectory(MonoCalibrate)

@@ -2,8 +2,8 @@
 #include <iostream>
 
 template<typename INPUT>
-MQTTDataSender<INPUT>::MQTTDataSender(std::string topic, std::string brokerUrl, std::string clientID ,tbb::flow::graph& g)
-	:DataSender(g, 1),
+MQTTDataSender<INPUT>::MQTTDataSender(std::string topic, std::string brokerUrl, std::string clientID ,DataFormat format,tbb::flow::graph& g)
+	:DataSender(format,g, 1),
 	topic(topic),
 	brokerUrl(brokerUrl),
 	clientID(clientID)
@@ -45,7 +45,16 @@ tbb::flow::continue_msg MQTTDataSender<INPUT>::process(INPUT modelData)
 	MQTTClient_message dataMessage = MQTTClient_message_initializer;
 	MQTTClient_deliveryToken token;
 
-	std::string data = modelData.toProto();
+	std::string data;
+
+	switch (dataFormat) {
+	case DataFormat::PROTOBUF:
+		data = modelData.toProto();
+		break;
+	case DataFormat::JSON:
+		data = modelData.toJSON();
+		break;
+	}
 	dataMessage.payload = (void*)(data.c_str());
 	dataMessage.payloadlen = data.length();
 	dataMessage.qos = 0;

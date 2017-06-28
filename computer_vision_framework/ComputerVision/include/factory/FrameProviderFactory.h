@@ -33,8 +33,6 @@ public:
 		try {
 			auto providerType = res_FrameProviderType[parameters.get<std::string>(TYPE)];
 
-			std::cout << parameters.get<std::string>(TYPE) << std::endl;
-
 			//Same constructor and init method for ximea camera and default camera (webcam)
 			if (providerType == FrameProviderType::XIMEA || providerType == FrameProviderType::DEFAULT || providerType == FrameProviderType::EXTERNAL) {
 

@@ -12,14 +12,21 @@
 #include <fstream>
 #include <tbb/compat/thread>
 #include <tbb/tbb.h>
-#include <opencv2/aruco.hpp>
 
 using namespace std;
+
+void help() {
+	std::cout << "Computer Vision application" << std::endl<<std::endl;
+	std::cout << "s - Initialize computer vision module and start processing"<<std::endl;
+	std::cout << "r - Reconfigure computer vision module" << std::endl;
+	std::cout << "x - Stop processing" << std::endl;
+	std::cout << "q - Quit application" << std::endl<<std::endl;
+}
 
 int main(int argc , char *argv[]) {
 
 	if (argc < 2) {
-		std::cout << "No command line argument!" << std::endl;
+		std::cout << "No command line argument! Please provide the path to the configuration file!" << std::endl;
 		return -1;
 	}
 
@@ -29,21 +36,14 @@ int main(int argc , char *argv[]) {
 
 	char c='a';
 
+	help();
+
 	while(c!='q'){
 		cin>>c;
 		switch(c){
 		case 's':
 		{
-			std::cout << "Initializing ComputerVision..."<<std::endl;
-
-			if (!cvModule.initialize(argv[1])) {
-				std::cout << "Failed to init!" << std::endl;
-			}
-			else {
-				std::cout << "Init successful!" << std::endl;
-
-				cout << "start processing thread..." << endl;
-
+			if (cvModule.initialize(argv[1])) {
 				tbb::tbb_thread processingThread(std::bind(&ComputerVision::startProcessing, &cvModule));
 				processingThread.detach();
 			}

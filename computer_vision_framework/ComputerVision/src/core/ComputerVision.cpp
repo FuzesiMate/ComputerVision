@@ -25,7 +25,7 @@
 #include "logger/logger.h"
 
 bool ComputerVision::initialize(const std::string configFilePath) {
-
+	LOGGER::LOG(Severity::LOG, "Computer vision core", "Initializing computer vision module...");
 	/*
 	 * initialize method needs to be called before the start of the processing workflow
 	 * the initialization of some cameras can take more time, so it is recommended
@@ -99,6 +99,9 @@ bool ComputerVision::initialize(const std::string configFilePath) {
 			}
 		}
 	}
+
+	LOGGER::LOG(Severity::LOG, "Computer vision core", "Successful initialization!");
+
 	initialized = true;
 	return initialized;
 }

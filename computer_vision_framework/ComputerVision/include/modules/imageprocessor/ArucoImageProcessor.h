@@ -29,7 +29,7 @@ public:
 		detectorParams->adaptiveThreshWinSizeMax = 31;
 		detectorParams->adaptiveThreshWinSizeStep = 10;
 		detectorParams->adaptiveThreshConstant = 10;
-		detectorParams->doCornerRefinement = true;
+		//detectorParams->doCornerRefinement = true;
 	};
 	ImageProcessingData<CONFIG> process(Frame frame);
 

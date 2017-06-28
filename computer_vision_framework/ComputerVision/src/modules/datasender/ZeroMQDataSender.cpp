@@ -10,15 +10,22 @@
 #include <iostream>
 
 template<typename INPUT>
-tbb::flow::continue_msg ZeroMQDataSender<INPUT>::process(INPUT data) {
+tbb::flow::continue_msg ZeroMQDataSender<INPUT>::process(INPUT modelData) {
 	/*
 	 * Publish the topic as the first part of a multi-part message
 	 * The subscriber has to subscribe for this topic in order to receive the message
 	 *The template type must implement the toJSON method which returns a string
 	 *containing the JSON object that will be published
 	 */
-
-	std::string output = data.toJSON();
+	std::string output;
+	switch (dataFormat) {
+	case DataFormat::PROTOBUF:
+		output = modelData.toProto();
+		break;
+	case DataFormat::JSON:
+		output = modelData.toJSON();
+		break;
+	}
 	if (!output.empty()){
 		zmq::message_t topic_message(topic.c_str(), topic.length());
 		publisher.send(topic_message, ZMQ_SNDMORE);
@@ -35,6 +42,6 @@ ZeroMQDataSender<INPUT>::~ZeroMQDataSender(){
 		publisher.close();
 		context.close();
 	}catch(std::exception& e){
-		std::cout << "Cannot close ZeroMQ context! Error message: " << e.what() << std::endl;
+		LOGGER::LOG(Severity::CRITICAL, "ZeroMQ data sender", "Cannot close connection");
 	}
 }

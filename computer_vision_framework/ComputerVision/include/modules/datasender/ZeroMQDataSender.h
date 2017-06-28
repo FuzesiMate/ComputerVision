@@ -21,7 +21,7 @@ private:
 	zmq::socket_t publisher;
 	std::string topic;
 public:
-	ZeroMQDataSender(std::string topic ,std::vector<std::string> bindAddresses ,tbb::flow::graph& g):DataSender(g,1),context(zmq::context_t(1)),publisher(zmq::socket_t(context, ZMQ_PUB)),topic(topic){
+	ZeroMQDataSender(std::string topic ,std::vector<std::string> bindAddresses ,DataFormat format, tbb::flow::graph& g):DataSender(format,g,1),context(zmq::context_t(1)),publisher(zmq::socket_t(context, ZMQ_PUB)),topic(topic){
 		for (auto address : bindAddresses) {
 			publisher.bind(address);
 		}

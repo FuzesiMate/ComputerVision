@@ -10,6 +10,7 @@
 #include "modules/datasender/MQTTDataSender.cpp"
 #include "core/data/DataTypes.h"
 
+constexpr auto DATA_FORMAT = "format";
 
 enum DataSenderType {
 	ZEROMQ,
@@ -17,6 +18,7 @@ enum DataSenderType {
 };
 
 std::map<std::string, DataSenderType> res_DataSenderType = { {"zeromq",DataSenderType::ZEROMQ },{"mqtt", DataSenderType::MQTT} };
+std::map<std::string, DataFormat> res_DataFormat = { {"protobuf" , DataFormat::PROTOBUF}, {"json" , DataFormat::JSON} };
 
 class DataSenderFactory {
 public:
@@ -29,6 +31,7 @@ public:
 
 		try {
 			DataSenderType senderType = res_DataSenderType[parameters.get<std::string>(TYPE)];
+			DataFormat dataFormat = res_DataFormat[parameters.get<std::string>(DATA_FORMAT)];
 
 			switch (senderType) {
 			case DataSenderType::ZEROMQ:
@@ -38,7 +41,7 @@ public:
 				for (auto& address : parameters.get_child(BIND_ADRESSES)) {
 					addresses.push_back(address.second.get<std::string>(""));
 				}
-				dataSender = std::make_shared<ZeroMQDataSender<INPUT> >(topic, addresses, g);
+				dataSender = std::make_shared<ZeroMQDataSender<INPUT> >(topic, addresses, dataFormat, g);
 			}
 			break;
 			case DataSenderType::MQTT:
@@ -46,7 +49,7 @@ public:
 				auto brokerUrl = parameters.get<std::string>(BROKER_URL);
 				auto clientID = parameters.get<std::string>(CLIENTID);
 
-				auto mqttSender = new MQTTDataSender<INPUT>(topic, brokerUrl, clientID, g);
+				auto mqttSender = new MQTTDataSender<INPUT>(topic, brokerUrl, clientID, dataFormat, g);
 
 				mqttSender->initializeNetwork();
 
