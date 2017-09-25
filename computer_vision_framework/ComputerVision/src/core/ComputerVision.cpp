@@ -1,5 +1,4 @@
 
-#include <winsock2.h>
 
 #include "core/ComputerVision.h"
 
@@ -20,7 +19,7 @@
 #include "factory/PostProcessorFactory.h"
 #include "factory/DataSenderFactory.h"
 
-#include "core/graph/object.cpp"
+#include "core/graph/Object.cpp"
 
 #include "logger/logger.h"
 

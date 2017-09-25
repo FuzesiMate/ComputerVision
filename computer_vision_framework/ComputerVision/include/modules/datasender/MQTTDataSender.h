@@ -15,6 +15,7 @@ private:
 	std::string topic;
 	std::string brokerUrl;
 	std::string clientID;
+	DataFormat dataFormat;
 public:
 	MQTTDataSender(std::string topic, std::string brokerUrl,std::string clientID, DataFormat format, tbb::flow::graph& g);
 	bool initializeNetwork();

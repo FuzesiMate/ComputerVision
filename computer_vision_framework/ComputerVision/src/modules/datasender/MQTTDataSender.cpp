@@ -1,12 +1,14 @@
 #include "modules/datasender/MQTTDataSender.h"
 #include <iostream>
+#include "logger/logger.h"
 
 template<typename INPUT>
 MQTTDataSender<INPUT>::MQTTDataSender(std::string topic, std::string brokerUrl, std::string clientID ,DataFormat format,tbb::flow::graph& g)
-	:DataSender(format,g, 1),
+	:DataSender<INPUT>(format,g, 1),
 	topic(topic),
 	brokerUrl(brokerUrl),
-	clientID(clientID)
+	clientID(clientID),
+	dataFormat(format)
 {
 
 }
@@ -32,7 +34,7 @@ bool MQTTDataSender<INPUT>::initializeNetwork()
 	{
 		std::stringstream s;
 		s << "Failed to connect to MQTT broker! Error code: " << returnCode;
-		throw std::exception(s.str().c_str());
+		throw std::runtime_error(s.str().c_str());
 	}
 
 	LOGGER::LOG(Severity::LOG, "MQTT data sender", "Connected to MQTT broker!");

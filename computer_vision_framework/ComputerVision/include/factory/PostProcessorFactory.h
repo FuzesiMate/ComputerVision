@@ -45,7 +45,7 @@ public:
 				}
 				break;
 			default:
-				throw std::exception("Not supported post processor!");
+				throw std::runtime_error("Not supported post processor!");
 				break;
 			}
 

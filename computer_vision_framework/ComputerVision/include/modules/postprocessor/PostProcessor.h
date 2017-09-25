@@ -1,7 +1,7 @@
 #pragma once
 #include "core/graph/Processor.h"
 #include "core/data/TemplateConfiguration.h"
-#include "core/data/datatypes.h"
+#include "core/data/DataTypes.h"
 #include <tbb/concurrent_unordered_map.h>
 #include <tbb/flow_graph.h>
 

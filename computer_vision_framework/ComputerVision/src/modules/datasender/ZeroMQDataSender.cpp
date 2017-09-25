@@ -8,6 +8,7 @@
 #include "modules/datasender/ZeroMQDataSender.h"
 #include <zmq_addon.hpp>
 #include <iostream>
+#include "logger/logger.h"
 
 template<typename INPUT>
 tbb::flow::continue_msg ZeroMQDataSender<INPUT>::process(INPUT modelData) {

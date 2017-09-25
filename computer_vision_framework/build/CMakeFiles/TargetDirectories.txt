@@ -1,0 +1,8 @@
+/home/nvidia/Projects/ComputerVision/computer_vision_framework/build/CMakeFiles/rebuild_cache.dir
+/home/nvidia/Projects/ComputerVision/computer_vision_framework/build/CMakeFiles/edit_cache.dir
+/home/nvidia/Projects/ComputerVision/computer_vision_framework/build/ComputerVision/CMakeFiles/edit_cache.dir
+/home/nvidia/Projects/ComputerVision/computer_vision_framework/build/ComputerVision/CMakeFiles/rebuild_cache.dir
+/home/nvidia/Projects/ComputerVision/computer_vision_framework/build/ComputerVision/CMakeFiles/ComputerVision.dir
+/home/nvidia/Projects/ComputerVision/computer_vision_framework/build/Application/CMakeFiles/rebuild_cache.dir
+/home/nvidia/Projects/ComputerVision/computer_vision_framework/build/Application/CMakeFiles/edit_cache.dir
+/home/nvidia/Projects/ComputerVision/computer_vision_framework/build/Application/CMakeFiles/Application.dir

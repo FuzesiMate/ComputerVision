@@ -45,7 +45,7 @@ public:
 
 				auto camera = std::make_unique<Camera>(fps, expo, gain, numberOfCameras, g);
 				if (!camera->initialize(providerType, cv::Size(width, height))) {
-					throw std::exception("Camera initialization failed");
+					throw std::runtime_error("Camera initialization failed");
 				}
 				//Move the pointer into the container
 				frameProvider = std::move(camera);
@@ -61,7 +61,7 @@ public:
 
 				auto videoSource = std::make_unique<VideoSource>(fps, g);
 				if (!videoSource->initialize(sources)) {
-					throw std::exception("Video player initialization failed");
+					throw std::runtime_error("Video player initialization failed");
 				}
 				//Move the pointer into the container
 				frameProvider = std::move(videoSource);
@@ -71,16 +71,16 @@ public:
 
 				auto networkCamera = std::make_unique<NetworkCamera>(g);
 				if (!networkCamera->initializeNetwork(address, topic)) {
-					throw new std::exception("Network camera initialization failed!");
+					throw new std::runtime_error("Network camera initialization failed!");
 				}
 
 				frameProvider = std::move(networkCamera);
 
 			}else {
-				throw std::exception("Not supported frame provider!");
+				throw std::runtime_error("Not supported frame provider!");
 			}
 		}
-		catch (std::exception& e) {
+		catch (std::runtime_error& e) {
 			throw e;
 		}
 

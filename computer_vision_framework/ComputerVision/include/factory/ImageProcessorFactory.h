@@ -6,12 +6,7 @@
 #include <boost/property_tree/ptree.hpp>
 #include "modules/imageprocessor/ImageProcessor.h"
 #include "modules/imageprocessor/ArucoImageProcessor.h"
-#include "modules/imageprocessor/IRTDImageProcessor.h"
-#include "modules/imageprocessor/CircleDetector.h"
-
 #include "modules/imageprocessor/ArucoImageProcessor.cpp"
-#include "modules/imageprocessor/IRTDImageProcessor.cpp"
-#include "modules/imageprocessor/CircleDetector.cpp"
 
 
 constexpr auto TYPE			= "type";
@@ -42,18 +37,14 @@ public:
 				break;
 			case IRTD:
 			{
-				int threshold = parameters.get<int>(THRESHOLD);
-				int duration = parameters.get<int>(DURATION);
-				int setupTime = parameters.get<int>(SETUP_TIME);
-
-				imageprocessor = std::make_shared<IRTDImageProcessor<CONFIG> >(threshold, duration, setupTime, g);
+				throw std::runtime_error("not supported image processor!");
 				break;
 			}
 			case CIRCLE:
-				imageprocessor = std::make_shared<CircleDetector<CONFIG> >(g);
+				throw std::runtime_error("not supported image processor!");
 				break;
 			default:
-				throw std::exception("Not supported image processing method!");
+				throw std::runtime_error("Not supported image processing method!");
 				break;
 			}
 			imageprocessor->reconfigure(parameters);

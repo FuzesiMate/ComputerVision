@@ -20,8 +20,9 @@ private:
 	zmq::context_t context;
 	zmq::socket_t publisher;
 	std::string topic;
+	DataFormat dataFormat;
 public:
-	ZeroMQDataSender(std::string topic ,std::vector<std::string> bindAddresses ,DataFormat format, tbb::flow::graph& g):DataSender(format,g,1),context(zmq::context_t(1)),publisher(zmq::socket_t(context, ZMQ_PUB)),topic(topic){
+	ZeroMQDataSender(std::string topic ,std::vector<std::string> bindAddresses ,DataFormat format, tbb::flow::graph& g):DataSender<INPUT>(format,g,1),context(zmq::context_t(1)),publisher(zmq::socket_t(context, ZMQ_PUB)),topic(topic),dataFormat(format){
 		for (auto address : bindAddresses) {
 			publisher.bind(address);
 		}

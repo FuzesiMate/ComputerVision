@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++14   CMakeFiles/Application.dir/src/cvApplication.cpp.o  -o Application  -L/usr/local/lib -Wl,-rpath,/usr/local/lib ../ComputerVision/libComputerVision.a -lopencv_imgcodecs -lopencv_core -lopencv_highgui -lopencv_calib3d -lopencv_videoio -lopencv_imgproc -lopencv_aruco -ltbb -ltbbmalloc -ltbbmalloc_proxy -lzmq -lpaho-mqtt3c -lprotobuf -lpng 

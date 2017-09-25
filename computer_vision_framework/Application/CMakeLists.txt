@@ -6,8 +6,8 @@ file(GLOB MAIN_SOURCES ${CMAKE_SOURCE_DIR}/Application/src/*.cpp)
 
 add_executable(${PROJECT_NAME} ${MAIN_SOURCES})
 
-SET(CV_DEBUG "${CMAKE_BINARY_DIR}/ComputerVision/Debug/ComputerVision.lib")
-SET(CV_RELEASE "${CMAKE_BINARY_DIR}/ComputerVision/Release/ComputerVision.lib")
+SET(CV_DEBUG "${CMAKE_BINARY_DIR}/ComputerVision/libComputerVision.a")
+SET(CV_RELEASE "${CMAKE_BINARY_DIR}/ComputerVision/libComputerVision.a")
 
 target_link_libraries(${PROJECT_NAME} debug ${CV_DEBUG})
 target_link_libraries(${PROJECT_NAME} optimized ${CV_RELEASE})
@@ -24,10 +24,10 @@ endif (WIN32)
 
 if(UNIX)
 	SET(DEBUG_LIBS opencv_core opencv_highgui opencv_calib3d opencv_videoio opencv_imgproc
-	opencv_aruco tbb tbbmalloc tbbmalloc_proxy libzmq libprotobuf paho-mqtt3c)
+	opencv_aruco tbb tbbmalloc tbbmalloc_proxy zmq protobuf paho-mqtt3c png)
 
 	SET(RELEASE_LIBS opencv_imgcodecs opencv_core opencv_highgui opencv_calib3d opencv_videoio 
-	opencv_imgproc opencv_aruco tbb tbbmalloc tbbmalloc_proxy libzmq paho-mqtt3c libprotobuf)
+	opencv_imgproc opencv_aruco tbb tbbmalloc tbbmalloc_proxy zmq paho-mqtt3c protobuf png)
 endif (UNIX)
 
 foreach (_dlib ${DEBUG_LIBS})

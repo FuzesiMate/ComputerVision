@@ -25,7 +25,7 @@ set(TBB_LIB "" CACHE PATH "Intel Threading Building Blocks library directory")
 set(PROTOBUF_LIB "" CACHE PATH "Protobuf library directory")
 
 
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
 include_directories(${CMAKE_SOURCE_DIR}/ComputerVision/include)
 include_directories(${CMAKE_SOURCE_DIR}/ComputerVision/src)

@@ -9,7 +9,7 @@
 #define SIMPLEVISUALIZER_H_
 
 #include <tbb/flow_graph.h>
-#include <opencv2\highgui.hpp>
+#include <opencv2/highgui.hpp>
 #include "core/data/DataTypes.h"
 #include "modules/visualizer/Visualizer.h"
 

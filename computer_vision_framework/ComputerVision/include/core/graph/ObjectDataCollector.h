@@ -36,7 +36,7 @@ private:
 #endif // LOG
 
 public:
-	void ObjectDataCollector::process(ObjectData objectData, collector_node::output_ports_type& output);
+	void process(ObjectData objectData, collector_node::output_ports_type& output);
 	ObjectDataCollector(int numberOfObjects, tbb::flow::graph& g)
 		:node(g , 1 , std::bind(&ObjectDataCollector::process, this , std::placeholders::_1 , std::placeholders::_2)),
 		nextFrameIndex(0),

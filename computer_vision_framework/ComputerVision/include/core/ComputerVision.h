@@ -18,7 +18,7 @@
 #include <boost/property_tree/ptree.hpp>
 
 #include "core/graph/Object.h"
-#include "modules/frameProvider/FrameProvider.h"
+#include "modules/frameprovider/FrameProvider.h"
 #include "core/data/TemplateConfiguration.h"
 #include "modules/imageprocessor/ImageProcessor.h"
 #include "core/graph/ModelDataStore.h"

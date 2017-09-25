@@ -35,7 +35,7 @@ public:
 				break; 
 			}		
 			default:
-				throw std::exception("Not supported visualizer!");
+				throw std::runtime_error("Not supported visualizer!");
 				break;
 			}
 		}
