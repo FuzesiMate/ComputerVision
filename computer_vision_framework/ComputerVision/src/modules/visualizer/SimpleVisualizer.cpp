@@ -80,7 +80,7 @@ tbb::flow::continue_msg SimpleVisualizer::process(tbb::flow::tuple<Frame, ModelD
 			}
 		}
 
-		cv::resize(image, image, cv::Size(image.cols/2, image.rows/2));
+		//cv::resize(image, image, cv::Size(image.cols/2, image.rows/2));
 		std::stringstream winname;
 		winname << windowName << i;
 		cv::imshow(winname.str(), image);
