@@ -44,7 +44,7 @@ ImageProcessingData< CONFIG >ArucoImageProcessor<CONFIG>::process(Frame frame){
 			}
 			cv::Point2f center;
 			float r;
-			//cv::aruco::drawDetectedMarkers(frame.images[i], corners, identifiers);
+			
 			tbb::concurrent_vector<cv::Point2f> markerPosition(corners.size());
 			tbb::concurrent_vector<int> 		markerIdentifier(identifiers.size());
 

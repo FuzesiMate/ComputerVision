@@ -1,11 +1,11 @@
 {
   "frameprovider": {
-    "type": "default",
+    "type": "external",
 	"sources":["C:/Users/Mate/Pictures/Camera Roll/WIN_20170622_11_06_23_Pro.jpg"],
 	"number":1,
-    "exposure":10000,
+    "exposure":5,
 	"fps":30,
-	"gain":0,
+	"gain":-7,
 	"width":1920,
 	"height":1080
   },
@@ -76,6 +76,6 @@
   ],
   "postprocessor":{
 	"type":"modes_postprocessor",
-	"path_to_matrices":"C:/Users/Mate/BME/onlab/git/ComputerVision/computer_vision_framework/MonoCalibrate/matrices5.yml"
+	"path_to_matrices":"/ssd/nvidia/Projects/ComputerVision/computer_vision_framework/MonoCalibrate/matrices5.yml"
   }
 }

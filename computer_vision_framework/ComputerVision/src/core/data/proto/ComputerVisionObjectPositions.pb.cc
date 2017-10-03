@@ -19,19 +19,40 @@
 
 namespace modes3 {
 namespace protobuf {
-class ComputerVisionObjectPositions_PhysicalObjectsEntryDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<ComputerVisionObjectPositions::ComputerVisionObjectPositions_PhysicalObjectsEntry> {
+class ComputerVisionObjectPositions_PhysicalObjectsEntryDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<ComputerVisionObjectPositions::ComputerVisionObjectPositions_PhysicalObjectsEntry>
+     _instance;
 } _ComputerVisionObjectPositions_PhysicalObjectsEntry_default_instance_;
-class ComputerVisionObjectPositionsDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<ComputerVisionObjectPositions> {
+class ComputerVisionObjectPositionsDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<ComputerVisionObjectPositions>
+     _instance;
 } _ComputerVisionObjectPositions_default_instance_;
-class PhysicalObject_MarkersEntryDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<PhysicalObject::PhysicalObject_MarkersEntry> {
+class PhysicalObject_MarkersEntryDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<PhysicalObject::PhysicalObject_MarkersEntry>
+     _instance;
 } _PhysicalObject_MarkersEntry_default_instance_;
-class PhysicalObjectDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<PhysicalObject> {
+class PhysicalObjectDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<PhysicalObject>
+     _instance;
 } _PhysicalObject_default_instance_;
-class MarkerDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Marker> {
+class MarkerDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<Marker>
+     _instance;
 } _Marker_default_instance_;
-class ThreeDPositionDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<ThreeDPosition> {
+class ThreeDPositionDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<ThreeDPosition>
+     _instance;
 } _ThreeDPosition_default_instance_;
-class TwoDPositionDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<TwoDPosition> {
+class TwoDPositionDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<TwoDPosition>
+     _instance;
 } _TwoDPosition_default_instance_;
 
 namespace protobuf_ComputerVisionObjectPositions_2eproto {
@@ -44,26 +65,26 @@ namespace {
 }  // namespace
 
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTableField
-    const TableStruct::entries[] = {
+    const TableStruct::entries[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   {0, 0, 0, ::google::protobuf::internal::kInvalidMask, 0, 0},
 };
 
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::AuxillaryParseTableField
-    const TableStruct::aux[] = {
+    const TableStruct::aux[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ::google::protobuf::internal::AuxillaryParseTableField(),
 };
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const
-    TableStruct::schema[] = {
-  { NULL, NULL, 0, -1, -1, false },
-  { NULL, NULL, 0, -1, -1, false },
-  { NULL, NULL, 0, -1, -1, false },
-  { NULL, NULL, 0, -1, -1, false },
-  { NULL, NULL, 0, -1, -1, false },
-  { NULL, NULL, 0, -1, -1, false },
-  { NULL, NULL, 0, -1, -1, false },
+    TableStruct::schema[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
 };
 
-const ::google::protobuf::uint32 TableStruct::offsets[] = {
+const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComputerVisionObjectPositions, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -104,8 +125,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TwoDPosition, x_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TwoDPosition, y_),
 };
-
-static const ::google::protobuf::internal::MigrationSchema schemas[] = {
+static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(ComputerVisionObjectPositions)},
   { 8, -1, sizeof(PhysicalObject)},
   { 15, -1, sizeof(Marker)},
@@ -131,8 +151,8 @@ void protobuf_AssignDescriptors() {
   AssignDescriptors(
       "ComputerVisionObjectPositions.proto", schemas, file_default_instances, TableStruct::offsets, factory,
       file_level_metadata, NULL, NULL);
-file_level_metadata[0].reflection = ComputerVisionObjectPositions::ComputerVisionObjectPositions_PhysicalObjectsEntry::CreateReflection(file_level_metadata[0].descriptor, _ComputerVisionObjectPositions_PhysicalObjectsEntry_default_instance_.get_mutable());
-file_level_metadata[2].reflection = PhysicalObject::PhysicalObject_MarkersEntry::CreateReflection(file_level_metadata[2].descriptor, _PhysicalObject_MarkersEntry_default_instance_.get_mutable());
+file_level_metadata[0].reflection = ComputerVisionObjectPositions::ComputerVisionObjectPositions_PhysicalObjectsEntry::CreateReflection(file_level_metadata[0].descriptor, _ComputerVisionObjectPositions_PhysicalObjectsEntry_default_instance_._instance.get_mutable());
+file_level_metadata[2].reflection = PhysicalObject::PhysicalObject_MarkersEntry::CreateReflection(file_level_metadata[2].descriptor, _PhysicalObject_MarkersEntry_default_instance_._instance.get_mutable());
 }
 
 void protobuf_AssignDescriptorsOnce() {
@@ -147,38 +167,29 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }
 
 }  // namespace
-
-void TableStruct::Shutdown() {
-  _ComputerVisionObjectPositions_default_instance_.Shutdown();
-  delete file_level_metadata[1].reflection;
-  _PhysicalObject_default_instance_.Shutdown();
-  delete file_level_metadata[3].reflection;
-  _Marker_default_instance_.Shutdown();
-  delete file_level_metadata[4].reflection;
-  _ThreeDPosition_default_instance_.Shutdown();
-  delete file_level_metadata[5].reflection;
-  _TwoDPosition_default_instance_.Shutdown();
-  delete file_level_metadata[6].reflection;
-  delete file_level_metadata[0].reflection;
-  delete file_level_metadata[2].reflection;
-}
-
 void TableStruct::InitDefaultsImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::internal::InitProtobufDefaults();
-  _ComputerVisionObjectPositions_PhysicalObjectsEntry_default_instance_.DefaultConstruct();
-  _ComputerVisionObjectPositions_default_instance_.DefaultConstruct();
-  _PhysicalObject_MarkersEntry_default_instance_.DefaultConstruct();
-  _PhysicalObject_default_instance_.DefaultConstruct();
-  _Marker_default_instance_.DefaultConstruct();
-  _ThreeDPosition_default_instance_.DefaultConstruct();
-  _TwoDPosition_default_instance_.DefaultConstruct();
-  _ComputerVisionObjectPositions_PhysicalObjectsEntry_default_instance_.get_mutable()->set_default_instance(_ComputerVisionObjectPositions_PhysicalObjectsEntry_default_instance_.get_mutable());
-  _ComputerVisionObjectPositions_PhysicalObjectsEntry_default_instance_.get_mutable()->InitAsDefaultInstance();
-  _PhysicalObject_MarkersEntry_default_instance_.get_mutable()->set_default_instance(_PhysicalObject_MarkersEntry_default_instance_.get_mutable());
-  _PhysicalObject_MarkersEntry_default_instance_.get_mutable()->InitAsDefaultInstance();
-  _Marker_default_instance_.get_mutable()->realposition_ = const_cast< ::modes3::protobuf::ThreeDPosition*>(
+  _ComputerVisionObjectPositions_PhysicalObjectsEntry_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_ComputerVisionObjectPositions_PhysicalObjectsEntry_default_instance_);_ComputerVisionObjectPositions_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_ComputerVisionObjectPositions_default_instance_);_PhysicalObject_MarkersEntry_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_PhysicalObject_MarkersEntry_default_instance_);_PhysicalObject_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_PhysicalObject_default_instance_);_Marker_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_Marker_default_instance_);_ThreeDPosition_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_ThreeDPosition_default_instance_);_TwoDPosition_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_TwoDPosition_default_instance_);_ComputerVisionObjectPositions_PhysicalObjectsEntry_default_instance_._instance.get_mutable()->set_default_instance(_ComputerVisionObjectPositions_PhysicalObjectsEntry_default_instance_._instance.get_mutable());
+  _ComputerVisionObjectPositions_PhysicalObjectsEntry_default_instance_._instance.get_mutable()->InitAsDefaultInstance();
+  _PhysicalObject_MarkersEntry_default_instance_._instance.get_mutable()->set_default_instance(_PhysicalObject_MarkersEntry_default_instance_._instance.get_mutable());
+  _PhysicalObject_MarkersEntry_default_instance_._instance.get_mutable()->InitAsDefaultInstance();
+  _Marker_default_instance_._instance.get_mutable()->realposition_ = const_cast< ::modes3::protobuf::ThreeDPosition*>(
       ::modes3::protobuf::ThreeDPosition::internal_default_instance());
 }
 
@@ -186,9 +197,10 @@ void InitDefaults() {
   static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
   ::google::protobuf::GoogleOnceInit(&once, &TableStruct::InitDefaultsImpl);
 }
+namespace {
 void AddDescriptorsImpl() {
   InitDefaults();
-  static const char descriptor[] = {
+  static const char descriptor[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n#ComputerVisionObjectPositions.proto\022\017m"
       "odes3.protobuf\"\375\001\n\035ComputerVisionObjectP"
       "ositions\022\\\n\017physicalObjects\030\001 \003(\0132C.mode"
@@ -214,14 +226,14 @@ void AddDescriptorsImpl() {
       descriptor, 779);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ComputerVisionObjectPositions.proto", &protobuf_RegisterTypes);
-  ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
 }
+} // anonymous namespace
 
 void AddDescriptors() {
   static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
   ::google::protobuf::GoogleOnceInit(&once, &AddDescriptorsImpl);
 }
-// Force AddDescriptors() to be called at static initialization time.
+// Force AddDescriptors() to be called at dynamic initialization time.
 struct StaticDescriptorInitializer {
   StaticDescriptorInitializer() {
     AddDescriptors();
@@ -273,14 +285,15 @@ ComputerVisionObjectPositions::ComputerVisionObjectPositions(const ComputerVisio
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   physicalobjects_.MergeFrom(from.physicalobjects_);
   ::memcpy(&timestamp_, &from.timestamp_,
-    reinterpret_cast<char*>(&frameindex_) -
-    reinterpret_cast<char*>(&timestamp_) + sizeof(frameindex_));
+    static_cast<size_t>(reinterpret_cast<char*>(&frameindex_) -
+    reinterpret_cast<char*>(&timestamp_)) + sizeof(frameindex_));
   // @@protoc_insertion_point(copy_constructor:modes3.protobuf.ComputerVisionObjectPositions)
 }
 
 void ComputerVisionObjectPositions::SharedCtor() {
-  ::memset(&timestamp_, 0, reinterpret_cast<char*>(&frameindex_) -
-    reinterpret_cast<char*>(&timestamp_) + sizeof(frameindex_));
+  ::memset(&timestamp_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&frameindex_) -
+      reinterpret_cast<char*>(&timestamp_)) + sizeof(frameindex_));
   _cached_size_ = 0;
 }
 
@@ -317,9 +330,15 @@ ComputerVisionObjectPositions* ComputerVisionObjectPositions::New(::google::prot
 
 void ComputerVisionObjectPositions::Clear() {
 // @@protoc_insertion_point(message_clear_start:modes3.protobuf.ComputerVisionObjectPositions)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
   physicalobjects_.Clear();
-  ::memset(&timestamp_, 0, reinterpret_cast<char*>(&frameindex_) -
-    reinterpret_cast<char*>(&timestamp_) + sizeof(frameindex_));
+  ::memset(&timestamp_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&frameindex_) -
+      reinterpret_cast<char*>(&timestamp_)) + sizeof(frameindex_));
+  _internal_metadata_.Clear();
 }
 
 bool ComputerVisionObjectPositions::MergePartialFromCodedStream(
@@ -335,7 +354,7 @@ bool ComputerVisionObjectPositions::MergePartialFromCodedStream(
       // map<string, .modes3.protobuf.PhysicalObject> physicalObjects = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u)) {
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
           ComputerVisionObjectPositions_PhysicalObjectsEntry::Parser< ::google::protobuf::internal::MapField<
               ComputerVisionObjectPositions_PhysicalObjectsEntry,
               ::std::string, ::modes3::protobuf::PhysicalObject,
@@ -346,7 +365,7 @@ bool ComputerVisionObjectPositions::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
               input, &parser));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            parser.key().data(), parser.key().length(),
+            parser.key().data(), static_cast<int>(parser.key().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "modes3.protobuf.ComputerVisionObjectPositions.PhysicalObjectsEntry.key"));
         } else {
@@ -358,7 +377,7 @@ bool ComputerVisionObjectPositions::MergePartialFromCodedStream(
       // int64 timestamp = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(16u)) {
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
@@ -372,7 +391,7 @@ bool ComputerVisionObjectPositions::MergePartialFromCodedStream(
       // int64 frameindex = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(24u)) {
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
@@ -385,12 +404,11 @@ bool ComputerVisionObjectPositions::MergePartialFromCodedStream(
 
       default: {
       handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+        if (tag == 0) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
         break;
       }
     }
@@ -419,7 +437,7 @@ void ComputerVisionObjectPositions::SerializeWithCachedSizes(
     struct Utf8Check {
       static void Check(ConstPtr p) {
         ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), p->first.length(),
+          p->first.data(), static_cast<int>(p->first.length()),
           ::google::protobuf::internal::WireFormatLite::SERIALIZE,
           "modes3.protobuf.ComputerVisionObjectPositions.PhysicalObjectsEntry.key");
       }
@@ -434,16 +452,16 @@ void ComputerVisionObjectPositions::SerializeWithCachedSizes(
       for (::google::protobuf::Map< ::std::string, ::modes3::protobuf::PhysicalObject >::const_iterator
           it = this->physicalobjects().begin();
           it != this->physicalobjects().end(); ++it, ++n) {
-        items[n] = SortItem(&*it);
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
       }
-      ::std::sort(&items[0], &items[n], Less());
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
       ::google::protobuf::scoped_ptr<ComputerVisionObjectPositions_PhysicalObjectsEntry> entry;
       for (size_type i = 0; i < n; i++) {
         entry.reset(physicalobjects_.NewEntryWrapper(
-            items[i]->first, items[i]->second));
+            items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
         ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
             1, *entry, output);
-        Utf8Check::Check(items[i]);
+        Utf8Check::Check(items[static_cast<ptrdiff_t>(i)]);
       }
     } else {
       ::google::protobuf::scoped_ptr<ComputerVisionObjectPositions_PhysicalObjectsEntry> entry;
@@ -469,11 +487,16 @@ void ComputerVisionObjectPositions::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(3, this->frameindex(), output);
   }
 
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
   // @@protoc_insertion_point(serialize_end:modes3.protobuf.ComputerVisionObjectPositions)
 }
 
 ::google::protobuf::uint8* ComputerVisionObjectPositions::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:modes3.protobuf.ComputerVisionObjectPositions)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -487,7 +510,7 @@ void ComputerVisionObjectPositions::SerializeWithCachedSizes(
     struct Utf8Check {
       static void Check(ConstPtr p) {
         ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), p->first.length(),
+          p->first.data(), static_cast<int>(p->first.length()),
           ::google::protobuf::internal::WireFormatLite::SERIALIZE,
           "modes3.protobuf.ComputerVisionObjectPositions.PhysicalObjectsEntry.key");
       }
@@ -502,18 +525,18 @@ void ComputerVisionObjectPositions::SerializeWithCachedSizes(
       for (::google::protobuf::Map< ::std::string, ::modes3::protobuf::PhysicalObject >::const_iterator
           it = this->physicalobjects().begin();
           it != this->physicalobjects().end(); ++it, ++n) {
-        items[n] = SortItem(&*it);
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
       }
-      ::std::sort(&items[0], &items[n], Less());
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
       ::google::protobuf::scoped_ptr<ComputerVisionObjectPositions_PhysicalObjectsEntry> entry;
       for (size_type i = 0; i < n; i++) {
         entry.reset(physicalobjects_.NewEntryWrapper(
-            items[i]->first, items[i]->second));
+            items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
         target = ::google::protobuf::internal::WireFormatLite::
                    InternalWriteMessageNoVirtualToArray(
                        1, *entry, deterministic, target);
 ;
-        Utf8Check::Check(items[i]);
+        Utf8Check::Check(items[static_cast<ptrdiff_t>(i)]);
       }
     } else {
       ::google::protobuf::scoped_ptr<ComputerVisionObjectPositions_PhysicalObjectsEntry> entry;
@@ -541,6 +564,10 @@ void ComputerVisionObjectPositions::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(3, this->frameindex(), target);
   }
 
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
   // @@protoc_insertion_point(serialize_to_array_end:modes3.protobuf.ComputerVisionObjectPositions)
   return target;
 }
@@ -549,6 +576,11 @@ size_t ComputerVisionObjectPositions::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:modes3.protobuf.ComputerVisionObjectPositions)
   size_t total_size = 0;
 
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
   // map<string, .modes3.protobuf.PhysicalObject> physicalObjects = 1;
   total_size += 1 *
       ::google::protobuf::internal::FromIntSize(this->physicalobjects_size());
@@ -638,10 +670,12 @@ void ComputerVisionObjectPositions::Swap(ComputerVisionObjectPositions* other) {
   InternalSwap(other);
 }
 void ComputerVisionObjectPositions::InternalSwap(ComputerVisionObjectPositions* other) {
+  using std::swap;
   physicalobjects_.Swap(&other->physicalobjects_);
-  std::swap(timestamp_, other->timestamp_);
-  std::swap(frameindex_, other->frameindex_);
-  std::swap(_cached_size_, other->_cached_size_);
+  swap(timestamp_, other->timestamp_);
+  swap(frameindex_, other->frameindex_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata ComputerVisionObjectPositions::GetMetadata() const {
@@ -786,8 +820,13 @@ PhysicalObject* PhysicalObject::New(::google::protobuf::Arena* arena) const {
 
 void PhysicalObject::Clear() {
 // @@protoc_insertion_point(message_clear_start:modes3.protobuf.PhysicalObject)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
   markers_.Clear();
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _internal_metadata_.Clear();
 }
 
 bool PhysicalObject::MergePartialFromCodedStream(
@@ -803,11 +842,11 @@ bool PhysicalObject::MergePartialFromCodedStream(
       // string name = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u)) {
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_name()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->name().data(), this->name().length(),
+            this->name().data(), static_cast<int>(this->name().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "modes3.protobuf.PhysicalObject.name"));
         } else {
@@ -819,7 +858,7 @@ bool PhysicalObject::MergePartialFromCodedStream(
       // map<string, .modes3.protobuf.Marker> markers = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u)) {
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           PhysicalObject_MarkersEntry::Parser< ::google::protobuf::internal::MapField<
               PhysicalObject_MarkersEntry,
               ::std::string, ::modes3::protobuf::Marker,
@@ -830,7 +869,7 @@ bool PhysicalObject::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
               input, &parser));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            parser.key().data(), parser.key().length(),
+            parser.key().data(), static_cast<int>(parser.key().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "modes3.protobuf.PhysicalObject.MarkersEntry.key"));
         } else {
@@ -841,12 +880,11 @@ bool PhysicalObject::MergePartialFromCodedStream(
 
       default: {
       handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+        if (tag == 0) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
         break;
       }
     }
@@ -869,7 +907,7 @@ void PhysicalObject::SerializeWithCachedSizes(
   // string name = 1;
   if (this->name().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->name().data(), this->name().length(),
+      this->name().data(), static_cast<int>(this->name().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "modes3.protobuf.PhysicalObject.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
@@ -885,7 +923,7 @@ void PhysicalObject::SerializeWithCachedSizes(
     struct Utf8Check {
       static void Check(ConstPtr p) {
         ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), p->first.length(),
+          p->first.data(), static_cast<int>(p->first.length()),
           ::google::protobuf::internal::WireFormatLite::SERIALIZE,
           "modes3.protobuf.PhysicalObject.MarkersEntry.key");
       }
@@ -900,16 +938,16 @@ void PhysicalObject::SerializeWithCachedSizes(
       for (::google::protobuf::Map< ::std::string, ::modes3::protobuf::Marker >::const_iterator
           it = this->markers().begin();
           it != this->markers().end(); ++it, ++n) {
-        items[n] = SortItem(&*it);
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
       }
-      ::std::sort(&items[0], &items[n], Less());
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
       ::google::protobuf::scoped_ptr<PhysicalObject_MarkersEntry> entry;
       for (size_type i = 0; i < n; i++) {
         entry.reset(markers_.NewEntryWrapper(
-            items[i]->first, items[i]->second));
+            items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
         ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
             2, *entry, output);
-        Utf8Check::Check(items[i]);
+        Utf8Check::Check(items[static_cast<ptrdiff_t>(i)]);
       }
     } else {
       ::google::protobuf::scoped_ptr<PhysicalObject_MarkersEntry> entry;
@@ -925,11 +963,16 @@ void PhysicalObject::SerializeWithCachedSizes(
     }
   }
 
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
   // @@protoc_insertion_point(serialize_end:modes3.protobuf.PhysicalObject)
 }
 
 ::google::protobuf::uint8* PhysicalObject::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:modes3.protobuf.PhysicalObject)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -937,7 +980,7 @@ void PhysicalObject::SerializeWithCachedSizes(
   // string name = 1;
   if (this->name().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->name().data(), this->name().length(),
+      this->name().data(), static_cast<int>(this->name().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "modes3.protobuf.PhysicalObject.name");
     target =
@@ -954,7 +997,7 @@ void PhysicalObject::SerializeWithCachedSizes(
     struct Utf8Check {
       static void Check(ConstPtr p) {
         ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), p->first.length(),
+          p->first.data(), static_cast<int>(p->first.length()),
           ::google::protobuf::internal::WireFormatLite::SERIALIZE,
           "modes3.protobuf.PhysicalObject.MarkersEntry.key");
       }
@@ -969,18 +1012,18 @@ void PhysicalObject::SerializeWithCachedSizes(
       for (::google::protobuf::Map< ::std::string, ::modes3::protobuf::Marker >::const_iterator
           it = this->markers().begin();
           it != this->markers().end(); ++it, ++n) {
-        items[n] = SortItem(&*it);
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
       }
-      ::std::sort(&items[0], &items[n], Less());
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
       ::google::protobuf::scoped_ptr<PhysicalObject_MarkersEntry> entry;
       for (size_type i = 0; i < n; i++) {
         entry.reset(markers_.NewEntryWrapper(
-            items[i]->first, items[i]->second));
+            items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
         target = ::google::protobuf::internal::WireFormatLite::
                    InternalWriteMessageNoVirtualToArray(
                        2, *entry, deterministic, target);
 ;
-        Utf8Check::Check(items[i]);
+        Utf8Check::Check(items[static_cast<ptrdiff_t>(i)]);
       }
     } else {
       ::google::protobuf::scoped_ptr<PhysicalObject_MarkersEntry> entry;
@@ -998,6 +1041,10 @@ void PhysicalObject::SerializeWithCachedSizes(
     }
   }
 
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
   // @@protoc_insertion_point(serialize_to_array_end:modes3.protobuf.PhysicalObject)
   return target;
 }
@@ -1006,6 +1053,11 @@ size_t PhysicalObject::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:modes3.protobuf.PhysicalObject)
   size_t total_size = 0;
 
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
   // map<string, .modes3.protobuf.Marker> markers = 2;
   total_size += 1 *
       ::google::protobuf::internal::FromIntSize(this->markers_size());
@@ -1086,9 +1138,11 @@ void PhysicalObject::Swap(PhysicalObject* other) {
   InternalSwap(other);
 }
 void PhysicalObject::InternalSwap(PhysicalObject* other) {
+  using std::swap;
   markers_.Swap(&other->markers_);
   name_.Swap(&other->name_);
-  std::swap(_cached_size_, other->_cached_size_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata PhysicalObject::GetMetadata() const {
@@ -1221,9 +1275,7 @@ Marker::~Marker() {
 
 void Marker::SharedDtor() {
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) {
-    delete realposition_;
-  }
+  if (this != internal_default_instance()) delete realposition_;
 }
 
 void Marker::SetCachedSize(int size) const {
@@ -1251,6 +1303,10 @@ Marker* Marker::New(::google::protobuf::Arena* arena) const {
 
 void Marker::Clear() {
 // @@protoc_insertion_point(message_clear_start:modes3.protobuf.Marker)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
   screenpositions_.Clear();
   tracked_.Clear();
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -1258,6 +1314,7 @@ void Marker::Clear() {
     delete realposition_;
   }
   realposition_ = NULL;
+  _internal_metadata_.Clear();
 }
 
 bool Marker::MergePartialFromCodedStream(
@@ -1273,11 +1330,11 @@ bool Marker::MergePartialFromCodedStream(
       // string name = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u)) {
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_name()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->name().data(), this->name().length(),
+            this->name().data(), static_cast<int>(this->name().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "modes3.protobuf.Marker.name"));
         } else {
@@ -1289,7 +1346,7 @@ bool Marker::MergePartialFromCodedStream(
       // .modes3.protobuf.ThreeDPosition realposition = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u)) {
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_realposition()));
         } else {
@@ -1301,7 +1358,7 @@ bool Marker::MergePartialFromCodedStream(
       // repeated .modes3.protobuf.TwoDPosition screenPositions = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(26u)) {
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_screenpositions()));
         } else {
@@ -1313,12 +1370,13 @@ bool Marker::MergePartialFromCodedStream(
       // repeated bool tracked = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(34u)) {
+            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, this->mutable_tracked())));
-        } else if (static_cast< ::google::protobuf::uint8>(tag) ==
-                   static_cast< ::google::protobuf::uint8>(32u)) {
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  1, 34u, input, this->mutable_tracked())));
@@ -1330,12 +1388,11 @@ bool Marker::MergePartialFromCodedStream(
 
       default: {
       handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+        if (tag == 0) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
         break;
       }
     }
@@ -1358,7 +1415,7 @@ void Marker::SerializeWithCachedSizes(
   // string name = 1;
   if (this->name().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->name().data(), this->name().length(),
+      this->name().data(), static_cast<int>(this->name().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "modes3.protobuf.Marker.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
@@ -1372,24 +1429,31 @@ void Marker::SerializeWithCachedSizes(
   }
 
   // repeated .modes3.protobuf.TwoDPosition screenPositions = 3;
-  for (unsigned int i = 0, n = this->screenpositions_size(); i < n; i++) {
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->screenpositions_size()); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, this->screenpositions(i), output);
+      3, this->screenpositions(static_cast<int>(i)), output);
   }
 
   // repeated bool tracked = 4;
   if (this->tracked_size() > 0) {
     ::google::protobuf::internal::WireFormatLite::WriteTag(4, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
-    output->WriteVarint32(_tracked_cached_byte_size_);
+    output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
+        _tracked_cached_byte_size_));
     ::google::protobuf::internal::WireFormatLite::WriteBoolArray(
       this->tracked().data(), this->tracked_size(), output);
   }
 
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
   // @@protoc_insertion_point(serialize_end:modes3.protobuf.Marker)
 }
 
 ::google::protobuf::uint8* Marker::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:modes3.protobuf.Marker)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -1397,7 +1461,7 @@ void Marker::SerializeWithCachedSizes(
   // string name = 1;
   if (this->name().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->name().data(), this->name().length(),
+      this->name().data(), static_cast<int>(this->name().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "modes3.protobuf.Marker.name");
     target =
@@ -1413,10 +1477,11 @@ void Marker::SerializeWithCachedSizes(
   }
 
   // repeated .modes3.protobuf.TwoDPosition screenPositions = 3;
-  for (unsigned int i = 0, n = this->screenpositions_size(); i < n; i++) {
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->screenpositions_size()); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        3, this->screenpositions(i), deterministic, target);
+        3, this->screenpositions(static_cast<int>(i)), deterministic, target);
   }
 
   // repeated bool tracked = 4;
@@ -1426,11 +1491,16 @@ void Marker::SerializeWithCachedSizes(
       ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
       target);
     target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
-      _tracked_cached_byte_size_, target);
+        static_cast< ::google::protobuf::uint32>(
+            _tracked_cached_byte_size_), target);
     target = ::google::protobuf::internal::WireFormatLite::
       WriteBoolNoTagToArray(this->tracked_, target);
   }
 
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
   // @@protoc_insertion_point(serialize_to_array_end:modes3.protobuf.Marker)
   return target;
 }
@@ -1439,24 +1509,30 @@ size_t Marker::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:modes3.protobuf.Marker)
   size_t total_size = 0;
 
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
   // repeated .modes3.protobuf.TwoDPosition screenPositions = 3;
   {
-    unsigned int count = this->screenpositions_size();
+    unsigned int count = static_cast<unsigned int>(this->screenpositions_size());
     total_size += 1UL * count;
     for (unsigned int i = 0; i < count; i++) {
       total_size +=
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->screenpositions(i));
+          this->screenpositions(static_cast<int>(i)));
     }
   }
 
   // repeated bool tracked = 4;
   {
-    unsigned int count = this->tracked_size();
+    unsigned int count = static_cast<unsigned int>(this->tracked_size());
     size_t data_size = 1UL * count;
     if (data_size > 0) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+            static_cast< ::google::protobuf::int32>(data_size));
     }
     int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
     GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -1542,11 +1618,13 @@ void Marker::Swap(Marker* other) {
   InternalSwap(other);
 }
 void Marker::InternalSwap(Marker* other) {
+  using std::swap;
   screenpositions_.InternalSwap(&other->screenpositions_);
   tracked_.InternalSwap(&other->tracked_);
   name_.Swap(&other->name_);
-  std::swap(realposition_, other->realposition_);
-  std::swap(_cached_size_, other->_cached_size_);
+  swap(realposition_, other->realposition_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata Marker::GetMetadata() const {
@@ -1619,9 +1697,10 @@ void Marker::clear_realposition() {
   realposition_ = NULL;
 }
 const ::modes3::protobuf::ThreeDPosition& Marker::realposition() const {
+  const ::modes3::protobuf::ThreeDPosition* p = realposition_;
   // @@protoc_insertion_point(field_get:modes3.protobuf.Marker.realposition)
-  return realposition_ != NULL ? *realposition_
-                         : *::modes3::protobuf::ThreeDPosition::internal_default_instance();
+  return p != NULL ? *p : *reinterpret_cast<const ::modes3::protobuf::ThreeDPosition*>(
+      &::modes3::protobuf::_ThreeDPosition_default_instance_);
 }
 ::modes3::protobuf::ThreeDPosition* Marker::mutable_realposition() {
   
@@ -1733,14 +1812,15 @@ ThreeDPosition::ThreeDPosition(const ThreeDPosition& from)
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&x_, &from.x_,
-    reinterpret_cast<char*>(&z_) -
-    reinterpret_cast<char*>(&x_) + sizeof(z_));
+    static_cast<size_t>(reinterpret_cast<char*>(&z_) -
+    reinterpret_cast<char*>(&x_)) + sizeof(z_));
   // @@protoc_insertion_point(copy_constructor:modes3.protobuf.ThreeDPosition)
 }
 
 void ThreeDPosition::SharedCtor() {
-  ::memset(&x_, 0, reinterpret_cast<char*>(&z_) -
-    reinterpret_cast<char*>(&x_) + sizeof(z_));
+  ::memset(&x_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&z_) -
+      reinterpret_cast<char*>(&x_)) + sizeof(z_));
   _cached_size_ = 0;
 }
 
@@ -1777,8 +1857,14 @@ ThreeDPosition* ThreeDPosition::New(::google::protobuf::Arena* arena) const {
 
 void ThreeDPosition::Clear() {
 // @@protoc_insertion_point(message_clear_start:modes3.protobuf.ThreeDPosition)
-  ::memset(&x_, 0, reinterpret_cast<char*>(&z_) -
-    reinterpret_cast<char*>(&x_) + sizeof(z_));
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&x_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&z_) -
+      reinterpret_cast<char*>(&x_)) + sizeof(z_));
+  _internal_metadata_.Clear();
 }
 
 bool ThreeDPosition::MergePartialFromCodedStream(
@@ -1794,7 +1880,7 @@ bool ThreeDPosition::MergePartialFromCodedStream(
       // double x = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(9u)) {
+            static_cast< ::google::protobuf::uint8>(9u /* 9 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
@@ -1808,7 +1894,7 @@ bool ThreeDPosition::MergePartialFromCodedStream(
       // double y = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(17u)) {
+            static_cast< ::google::protobuf::uint8>(17u /* 17 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
@@ -1822,7 +1908,7 @@ bool ThreeDPosition::MergePartialFromCodedStream(
       // double z = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(25u)) {
+            static_cast< ::google::protobuf::uint8>(25u /* 25 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
@@ -1835,12 +1921,11 @@ bool ThreeDPosition::MergePartialFromCodedStream(
 
       default: {
       handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+        if (tag == 0) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
         break;
       }
     }
@@ -1875,11 +1960,16 @@ void ThreeDPosition::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->z(), output);
   }
 
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
   // @@protoc_insertion_point(serialize_end:modes3.protobuf.ThreeDPosition)
 }
 
 ::google::protobuf::uint8* ThreeDPosition::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:modes3.protobuf.ThreeDPosition)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -1899,6 +1989,10 @@ void ThreeDPosition::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->z(), target);
   }
 
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
   // @@protoc_insertion_point(serialize_to_array_end:modes3.protobuf.ThreeDPosition)
   return target;
 }
@@ -1907,6 +2001,11 @@ size_t ThreeDPosition::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:modes3.protobuf.ThreeDPosition)
   size_t total_size = 0;
 
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
   // double x = 1;
   if (this->x() != 0) {
     total_size += 1 + 8;
@@ -1985,10 +2084,12 @@ void ThreeDPosition::Swap(ThreeDPosition* other) {
   InternalSwap(other);
 }
 void ThreeDPosition::InternalSwap(ThreeDPosition* other) {
-  std::swap(x_, other->x_);
-  std::swap(y_, other->y_);
-  std::swap(z_, other->z_);
-  std::swap(_cached_size_, other->_cached_size_);
+  using std::swap;
+  swap(x_, other->x_);
+  swap(y_, other->y_);
+  swap(z_, other->z_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata ThreeDPosition::GetMetadata() const {
@@ -2064,14 +2165,15 @@ TwoDPosition::TwoDPosition(const TwoDPosition& from)
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&x_, &from.x_,
-    reinterpret_cast<char*>(&y_) -
-    reinterpret_cast<char*>(&x_) + sizeof(y_));
+    static_cast<size_t>(reinterpret_cast<char*>(&y_) -
+    reinterpret_cast<char*>(&x_)) + sizeof(y_));
   // @@protoc_insertion_point(copy_constructor:modes3.protobuf.TwoDPosition)
 }
 
 void TwoDPosition::SharedCtor() {
-  ::memset(&x_, 0, reinterpret_cast<char*>(&y_) -
-    reinterpret_cast<char*>(&x_) + sizeof(y_));
+  ::memset(&x_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&y_) -
+      reinterpret_cast<char*>(&x_)) + sizeof(y_));
   _cached_size_ = 0;
 }
 
@@ -2108,8 +2210,14 @@ TwoDPosition* TwoDPosition::New(::google::protobuf::Arena* arena) const {
 
 void TwoDPosition::Clear() {
 // @@protoc_insertion_point(message_clear_start:modes3.protobuf.TwoDPosition)
-  ::memset(&x_, 0, reinterpret_cast<char*>(&y_) -
-    reinterpret_cast<char*>(&x_) + sizeof(y_));
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&x_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&y_) -
+      reinterpret_cast<char*>(&x_)) + sizeof(y_));
+  _internal_metadata_.Clear();
 }
 
 bool TwoDPosition::MergePartialFromCodedStream(
@@ -2125,7 +2233,7 @@ bool TwoDPosition::MergePartialFromCodedStream(
       // double x = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(9u)) {
+            static_cast< ::google::protobuf::uint8>(9u /* 9 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
@@ -2139,7 +2247,7 @@ bool TwoDPosition::MergePartialFromCodedStream(
       // double y = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(17u)) {
+            static_cast< ::google::protobuf::uint8>(17u /* 17 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
@@ -2152,12 +2260,11 @@ bool TwoDPosition::MergePartialFromCodedStream(
 
       default: {
       handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+        if (tag == 0) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
         break;
       }
     }
@@ -2187,11 +2294,16 @@ void TwoDPosition::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->y(), output);
   }
 
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
   // @@protoc_insertion_point(serialize_end:modes3.protobuf.TwoDPosition)
 }
 
 ::google::protobuf::uint8* TwoDPosition::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:modes3.protobuf.TwoDPosition)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -2206,6 +2318,10 @@ void TwoDPosition::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->y(), target);
   }
 
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
   // @@protoc_insertion_point(serialize_to_array_end:modes3.protobuf.TwoDPosition)
   return target;
 }
@@ -2214,6 +2330,11 @@ size_t TwoDPosition::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:modes3.protobuf.TwoDPosition)
   size_t total_size = 0;
 
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
   // double x = 1;
   if (this->x() != 0) {
     total_size += 1 + 8;
@@ -2284,9 +2405,11 @@ void TwoDPosition::Swap(TwoDPosition* other) {
   InternalSwap(other);
 }
 void TwoDPosition::InternalSwap(TwoDPosition* other) {
-  std::swap(x_, other->x_);
-  std::swap(y_, other->y_);
-  std::swap(_cached_size_, other->_cached_size_);
+  using std::swap;
+  swap(x_, other->x_);
+  swap(y_, other->y_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata TwoDPosition::GetMetadata() const {

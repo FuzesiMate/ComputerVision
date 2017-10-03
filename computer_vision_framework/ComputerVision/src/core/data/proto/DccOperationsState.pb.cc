@@ -19,7 +19,10 @@
 
 namespace modes3 {
 namespace protobuf {
-class DccOperationsStateDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<DccOperationsState> {
+class DccOperationsStateDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<DccOperationsState>
+     _instance;
 } _DccOperationsState_default_instance_;
 
 namespace protobuf_DccOperationsState_2eproto {
@@ -32,20 +35,20 @@ namespace {
 }  // namespace
 
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTableField
-    const TableStruct::entries[] = {
+    const TableStruct::entries[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   {0, 0, 0, ::google::protobuf::internal::kInvalidMask, 0, 0},
 };
 
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::AuxillaryParseTableField
-    const TableStruct::aux[] = {
+    const TableStruct::aux[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ::google::protobuf::internal::AuxillaryParseTableField(),
 };
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const
-    TableStruct::schema[] = {
-  { NULL, NULL, 0, -1, -1, false },
+    TableStruct::schema[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
 };
 
-const ::google::protobuf::uint32 TableStruct::offsets[] = {
+const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DccOperationsState, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -53,8 +56,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DccOperationsState, dccoperations_),
 };
-
-static const ::google::protobuf::internal::MigrationSchema schemas[] = {
+static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(DccOperationsState)},
 };
 
@@ -84,27 +86,23 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }
 
 }  // namespace
-
-void TableStruct::Shutdown() {
-  _DccOperationsState_default_instance_.Shutdown();
-  delete file_level_metadata[0].reflection;
-}
-
 void TableStruct::InitDefaultsImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::internal::InitProtobufDefaults();
   ::modes3::protobuf::protobuf_Enums_2eproto::InitDefaults();
-  _DccOperationsState_default_instance_.DefaultConstruct();
-}
+  _DccOperationsState_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_DccOperationsState_default_instance_);}
 
 void InitDefaults() {
   static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
   ::google::protobuf::GoogleOnceInit(&once, &TableStruct::InitDefaultsImpl);
 }
+namespace {
 void AddDescriptorsImpl() {
   InitDefaults();
-  static const char descriptor[] = {
+  static const char descriptor[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\030DccOperationsState.proto\022\017modes3.proto"
       "buf\032\013Enums.proto\"K\n\022DccOperationsState\0225"
       "\n\rdccOperations\030\001 \001(\0162\036.modes3.protobuf."
@@ -116,14 +114,14 @@ void AddDescriptorsImpl() {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "DccOperationsState.proto", &protobuf_RegisterTypes);
   ::modes3::protobuf::protobuf_Enums_2eproto::AddDescriptors();
-  ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
 }
+} // anonymous namespace
 
 void AddDescriptors() {
   static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
   ::google::protobuf::GoogleOnceInit(&once, &AddDescriptorsImpl);
 }
-// Force AddDescriptors() to be called at static initialization time.
+// Force AddDescriptors() to be called at dynamic initialization time.
 struct StaticDescriptorInitializer {
   StaticDescriptorInitializer() {
     AddDescriptors();
@@ -194,7 +192,12 @@ DccOperationsState* DccOperationsState::New(::google::protobuf::Arena* arena) co
 
 void DccOperationsState::Clear() {
 // @@protoc_insertion_point(message_clear_start:modes3.protobuf.DccOperationsState)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
   dccoperations_ = 0;
+  _internal_metadata_.Clear();
 }
 
 bool DccOperationsState::MergePartialFromCodedStream(
@@ -210,7 +213,7 @@ bool DccOperationsState::MergePartialFromCodedStream(
       // .modes3.protobuf.DccOperations dccOperations = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u)) {
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -224,12 +227,11 @@ bool DccOperationsState::MergePartialFromCodedStream(
 
       default: {
       handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+        if (tag == 0) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
         break;
       }
     }
@@ -255,11 +257,16 @@ void DccOperationsState::SerializeWithCachedSizes(
       1, this->dccoperations(), output);
   }
 
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
   // @@protoc_insertion_point(serialize_end:modes3.protobuf.DccOperationsState)
 }
 
 ::google::protobuf::uint8* DccOperationsState::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:modes3.protobuf.DccOperationsState)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -270,6 +277,10 @@ void DccOperationsState::SerializeWithCachedSizes(
       1, this->dccoperations(), target);
   }
 
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
   // @@protoc_insertion_point(serialize_to_array_end:modes3.protobuf.DccOperationsState)
   return target;
 }
@@ -278,6 +289,11 @@ size_t DccOperationsState::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:modes3.protobuf.DccOperationsState)
   size_t total_size = 0;
 
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
   // .modes3.protobuf.DccOperations dccOperations = 1;
   if (this->dccoperations() != 0) {
     total_size += 1 +
@@ -341,8 +357,10 @@ void DccOperationsState::Swap(DccOperationsState* other) {
   InternalSwap(other);
 }
 void DccOperationsState::InternalSwap(DccOperationsState* other) {
-  std::swap(dccoperations_, other->dccoperations_);
-  std::swap(_cached_size_, other->_cached_size_);
+  using std::swap;
+  swap(dccoperations_, other->dccoperations_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata DccOperationsState::GetMetadata() const {

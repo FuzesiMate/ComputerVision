@@ -18,7 +18,10 @@
 // @@protoc_insertion_point(includes)
 
 namespace leapmotion {
-class ComplexGestureDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<ComplexGesture> {
+class ComplexGestureDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<ComplexGesture>
+     _instance;
 } _ComplexGesture_default_instance_;
 
 namespace protobuf_complex_5fgestures_2eproto {
@@ -32,20 +35,20 @@ const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[1];
 }  // namespace
 
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTableField
-    const TableStruct::entries[] = {
+    const TableStruct::entries[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   {0, 0, 0, ::google::protobuf::internal::kInvalidMask, 0, 0},
 };
 
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::AuxillaryParseTableField
-    const TableStruct::aux[] = {
+    const TableStruct::aux[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ::google::protobuf::internal::AuxillaryParseTableField(),
 };
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const
-    TableStruct::schema[] = {
-  { NULL, NULL, 0, -1, -1, false },
+    TableStruct::schema[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
 };
 
-const ::google::protobuf::uint32 TableStruct::offsets[] = {
+const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComplexGesture, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComplexGesture, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -60,8 +63,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   2,
   3,
 };
-
-static const ::google::protobuf::internal::MigrationSchema schemas[] = {
+static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 9, sizeof(ComplexGesture)},
 };
 
@@ -91,26 +93,22 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }
 
 }  // namespace
-
-void TableStruct::Shutdown() {
-  _ComplexGesture_default_instance_.Shutdown();
-  delete file_level_metadata[0].reflection;
-}
-
 void TableStruct::InitDefaultsImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::internal::InitProtobufDefaults();
-  _ComplexGesture_default_instance_.DefaultConstruct();
-}
+  _ComplexGesture_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_ComplexGesture_default_instance_);}
 
 void InitDefaults() {
   static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
   ::google::protobuf::GoogleOnceInit(&once, &TableStruct::InitDefaultsImpl);
 }
+namespace {
 void AddDescriptorsImpl() {
   InitDefaults();
-  static const char descriptor[] = {
+  static const char descriptor[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\026complex_gestures.proto\022\nleapmotion\"\251\002\n"
       "\016ComplexGesture\022\n\n\002id\030\001 \001(\005\022\r\n\005valid\030\007 \001"
       "(\010\022-\n\004type\030\t \001(\0162\037.leapmotion.ComplexGes"
@@ -127,14 +125,14 @@ void AddDescriptorsImpl() {
       descriptor, 401);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "complex_gestures.proto", &protobuf_RegisterTypes);
-  ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
 }
+} // anonymous namespace
 
 void AddDescriptors() {
   static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
   ::google::protobuf::GoogleOnceInit(&once, &AddDescriptorsImpl);
 }
-// Force AddDescriptors() to be called at static initialization time.
+// Force AddDescriptors() to be called at dynamic initialization time.
 struct StaticDescriptorInitializer {
   StaticDescriptorInitializer() {
     AddDescriptors();
@@ -205,15 +203,16 @@ ComplexGesture::ComplexGesture(const ComplexGesture& from)
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&id_, &from.id_,
-    reinterpret_cast<char*>(&timestamp_) -
-    reinterpret_cast<char*>(&id_) + sizeof(timestamp_));
+    static_cast<size_t>(reinterpret_cast<char*>(&timestamp_) -
+    reinterpret_cast<char*>(&id_)) + sizeof(timestamp_));
   // @@protoc_insertion_point(copy_constructor:leapmotion.ComplexGesture)
 }
 
 void ComplexGesture::SharedCtor() {
   _cached_size_ = 0;
-  ::memset(&id_, 0, reinterpret_cast<char*>(&timestamp_) -
-    reinterpret_cast<char*>(&id_) + sizeof(timestamp_));
+  ::memset(&id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&timestamp_) -
+      reinterpret_cast<char*>(&id_)) + sizeof(timestamp_));
 }
 
 ComplexGesture::~ComplexGesture() {
@@ -249,9 +248,15 @@ ComplexGesture* ComplexGesture::New(::google::protobuf::Arena* arena) const {
 
 void ComplexGesture::Clear() {
 // @@protoc_insertion_point(message_clear_start:leapmotion.ComplexGesture)
-  if (_has_bits_[0 / 32] & 15u) {
-    ::memset(&id_, 0, reinterpret_cast<char*>(&timestamp_) -
-      reinterpret_cast<char*>(&id_) + sizeof(timestamp_));
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 15u) {
+    ::memset(&id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&timestamp_) -
+        reinterpret_cast<char*>(&id_)) + sizeof(timestamp_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
@@ -270,7 +275,7 @@ bool ComplexGesture::MergePartialFromCodedStream(
       // optional int32 id = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u)) {
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
           set_has_id();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -284,7 +289,7 @@ bool ComplexGesture::MergePartialFromCodedStream(
       // optional bool valid = 7;
       case 7: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(56u)) {
+            static_cast< ::google::protobuf::uint8>(56u /* 56 & 0xFF */)) {
           set_has_valid();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -298,7 +303,7 @@ bool ComplexGesture::MergePartialFromCodedStream(
       // optional .leapmotion.ComplexGesture.Type type = 9;
       case 9: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(72u)) {
+            static_cast< ::google::protobuf::uint8>(72u /* 72 & 0xFF */)) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -306,7 +311,8 @@ bool ComplexGesture::MergePartialFromCodedStream(
           if (::leapmotion::ComplexGesture_Type_IsValid(value)) {
             set_type(static_cast< ::leapmotion::ComplexGesture_Type >(value));
           } else {
-            mutable_unknown_fields()->AddVarint(9, value);
+            mutable_unknown_fields()->AddVarint(
+                9, static_cast< ::google::protobuf::uint64>(value));
           }
         } else {
           goto handle_unusual;
@@ -317,7 +323,7 @@ bool ComplexGesture::MergePartialFromCodedStream(
       // optional int64 timestamp = 10;
       case 10: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(80u)) {
+            static_cast< ::google::protobuf::uint8>(80u /* 80 & 0xFF */)) {
           set_has_timestamp();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
@@ -330,13 +336,11 @@ bool ComplexGesture::MergePartialFromCodedStream(
 
       default: {
       handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+        if (tag == 0) {
           goto success;
         }
         DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
         break;
       }
     }
@@ -380,13 +384,14 @@ void ComplexGesture::SerializeWithCachedSizes(
 
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
+        _internal_metadata_.unknown_fields(), output);
   }
   // @@protoc_insertion_point(serialize_end:leapmotion.ComplexGesture)
 }
 
 ::google::protobuf::uint8* ComplexGesture::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:leapmotion.ComplexGesture)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -415,7 +420,7 @@ void ComplexGesture::SerializeWithCachedSizes(
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
+        _internal_metadata_.unknown_fields(), target);
   }
   // @@protoc_insertion_point(serialize_to_array_end:leapmotion.ComplexGesture)
   return target;
@@ -428,7 +433,7 @@ size_t ComplexGesture::ByteSizeLong() const {
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
+        _internal_metadata_.unknown_fields());
   }
   if (_has_bits_[0 / 32] & 15u) {
     // optional int32 id = 1;
@@ -527,13 +532,14 @@ void ComplexGesture::Swap(ComplexGesture* other) {
   InternalSwap(other);
 }
 void ComplexGesture::InternalSwap(ComplexGesture* other) {
-  std::swap(id_, other->id_);
-  std::swap(valid_, other->valid_);
-  std::swap(type_, other->type_);
-  std::swap(timestamp_, other->timestamp_);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  using std::swap;
+  swap(id_, other->id_);
+  swap(valid_, other->valid_);
+  swap(type_, other->type_);
+  swap(timestamp_, other->timestamp_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  std::swap(_cached_size_, other->_cached_size_);
+  swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata ComplexGesture::GetMetadata() const {

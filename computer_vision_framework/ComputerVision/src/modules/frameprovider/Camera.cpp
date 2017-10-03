@@ -96,11 +96,14 @@ bool Camera::initialize(int cameraType , cv::Size frameSize) {
 #endif
 	cameras = std::vector<cv::VideoCapture>(numberOfCameras);
 	for(int i = 0 ; i<numberOfCameras ; i++){
-		if(!cameras[i].open(cv::CAP_DSHOW + cameraType)){
+    	
+		if(!cameras[i].open(1)){
+		//    std::cout<<"FALSEEEEEE"<<std::endl;
 			return false;
 		}
 		cameras[i].set(cv::CAP_PROP_FOURCC, cv::VideoWriter::fourcc('M' , 'J' , 'P' , 'G'));
-		cameras[i].set(cv::CAP_PROP_XI_AEAG , 0.0);
+		//cameras[i].set(cv::CAP_PROP_FOURCC, cv::VideoWriter::fourcc('M' , 'J' , 'P' , 'G'));
+		//cameras[i].set(cv::CAP_PROP_XI_AEAG , 0.0);
 		cameras[i].set(cv::CAP_PROP_FPS , 30);
 		cameras[i].set(cv::CAP_PROP_EXPOSURE , exposure);
 		cameras[i].set(cv::CAP_PROP_GAIN , gain);

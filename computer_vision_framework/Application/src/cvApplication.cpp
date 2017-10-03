@@ -24,6 +24,7 @@ void help() {
 }
 
 int main(int argc , char *argv[]) {
+std::cout<<"retek"<<std::endl;
 
 	if (argc < 2) {
 		std::cout << "No command line argument! Please provide the path to the configuration file!" << std::endl;
@@ -38,6 +39,7 @@ int main(int argc , char *argv[]) {
 
 	help();
 
+	
 	while(c!='q'){
 		cin>>c;
 		switch(c){
@@ -71,5 +73,6 @@ int main(int argc , char *argv[]) {
 			break;
 		}
 	}
+
 	return 0;
 }
