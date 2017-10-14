@@ -1,5 +1,7 @@
 
-
+#ifdef _WIN32
+#include <WinSock2.h>
+#endif
 #include "core/ComputerVision.h"
 
 #include <boost/property_tree/json_parser.hpp>

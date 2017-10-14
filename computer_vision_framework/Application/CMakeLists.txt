@@ -6,8 +6,15 @@ file(GLOB MAIN_SOURCES ${CMAKE_SOURCE_DIR}/Application/src/*.cpp)
 
 add_executable(${PROJECT_NAME} ${MAIN_SOURCES})
 
+if(UNIX)
 SET(CV_DEBUG "${CMAKE_BINARY_DIR}/ComputerVision/libComputerVision.a")
 SET(CV_RELEASE "${CMAKE_BINARY_DIR}/ComputerVision/libComputerVision.a")
+endif(UNIX)
+
+if(WIN32)
+SET(CV_DEBUG "${CMAKE_BINARY_DIR}/ComputerVision/Debug/ComputerVision.lib")
+SET(CV_RELEASE "${CMAKE_BINARY_DIR}/ComputerVision/Release/ComputerVision.lib")
+endif(WIN32)
 
 target_link_libraries(${PROJECT_NAME} debug ${CV_DEBUG})
 target_link_libraries(${PROJECT_NAME} optimized ${CV_RELEASE})
