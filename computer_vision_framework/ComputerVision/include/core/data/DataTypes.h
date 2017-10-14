@@ -105,12 +105,55 @@ struct ModelData {
 	uint64_t frameIndex;
 
 	std::string toProto() {
-		auto objectPositionsProto = 
+
+		modes3::protobuf::Message message;
+		message.set_type(modes3::protobuf::MessageType::COMPUTER_VISION_OBJECT_POSITIONS);
+
+		auto computerVisionObjectPositions = message.mutable_computervisionobjectpositions();
+		computerVisionObjectPositions->set_frameindex(frameIndex);
+		computerVisionObjectPositions->set_timestamp(timestamp);
+		auto physicalObjects = computerVisionObjectPositions->mutable_physicalobjects();
+
+		for (auto& object : objectData) {
+			modes3::protobuf::PhysicalObject physicalObject;
+			physicalObject.set_name(object.first);
+			auto markers = physicalObject.mutable_markers();
+
+			for (auto& marker : object.second.markerData) {
+				modes3::protobuf::Marker markerProto;
+				markerProto.set_name(marker.first);
+				
+				for (auto tracked : marker.second.tracked) {
+					markerProto.add_tracked(tracked);
+				}
+
+				for (auto screenPosition : marker.second.screenPosition) {
+					auto screenPositionProto = markerProto.add_screenpositions();
+					screenPositionProto->set_x(screenPosition.x);
+					screenPositionProto->set_y(screenPosition.y);
+
+				}
+
+				auto realPositionProto = markerProto.mutable_realposition();
+				realPositionProto->set_x(marker.second.realPosition.x);
+				realPositionProto->set_y(marker.second.realPosition.y);
+				realPositionProto->set_z(1.5);
+				//std::cout << "ORIGINAL: " << marker.second.realPosition.x << " " << marker.second.realPosition.y << " " << marker.second.realPosition.z << std::endl;
+				std::cout <<  "PROTO:"<< markerProto.name() << " " << realPositionProto->x()<<"  "<< realPositionProto->y()<<"  "<< realPositionProto->z() << std::endl;
+
+				(*markers)[marker.first] = markerProto;
+			}
+
+			//physicalObjects[object.first] = physicalObject;
+
+			(*physicalObjects)[object.first] = physicalObject;
+		}
+		/*auto objectPositionsProto = 
 				std::make_unique<modes3::protobuf::ComputerVisionObjectPositions>();
 
 		objectPositionsProto->set_frameindex(frameIndex);
 		objectPositionsProto->set_timestamp(timestamp);
-		auto& objectsMap = *objectPositionsProto->mutable_physicalobjects();
+		auto& objectsMap = objectPositionsProto->mutable_physicalobjects();
 
 		for (auto& object : objectData) {
 			modes3::protobuf::PhysicalObject objectProto;
@@ -137,7 +180,9 @@ struct ModelData {
 												std::make_unique< modes3::protobuf::ThreeDPosition>();
 				realPositionProto->set_x(marker.second.realPosition.x);
 				realPositionProto->set_y(marker.second.realPosition.y);
-				realPositionProto->set_x(0);
+				realPositionProto->set_z(0);
+
+				std::cout <<marker.first<<" "<<marker.second.realPosition.x << " " << marker.second.realPosition.y << " " << marker.second.realPosition.z << std::endl;
 
 				markerProto.set_allocated_realposition(realPositionProto.release());
 				markerMap[marker.second.name] = markerProto;
@@ -147,8 +192,7 @@ struct ModelData {
 
 		modes3::protobuf::Message message;
 		message.set_type(modes3::protobuf::MessageType::COMPUTER_VISION_OBJECT_POSITIONS);
-		message.set_allocated_computervisionobjectpositions(objectPositionsProto.release());
-
+		message.set_allocated_computervisionobjectpositions(objectPositionsProto.release());*/
 		return message.SerializeAsString();
 	}
 

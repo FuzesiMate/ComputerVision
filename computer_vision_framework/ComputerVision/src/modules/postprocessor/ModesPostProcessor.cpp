@@ -21,6 +21,9 @@ void ModesPostProcessor::loadMatrices(std::string path) {
 }
 
 ModelData ModesPostProcessor::process(ModelData inData) {
+
+	auto retData = inData;
+
 	if (!validDetection) {
 		tablePosition = inData.objectData["table"];
 
@@ -33,7 +36,7 @@ ModelData ModesPostProcessor::process(ModelData inData) {
 		}
 	}
 	if (validDetection) {
-		for (auto& object : inData.objectData) {
+		for (auto& object : retData.objectData) {
 			if (object.first != "table") {
 				for (auto& marker : object.second.markerData) {
 					if (marker.second.tracked[0]) {
@@ -44,15 +47,15 @@ ModelData ModesPostProcessor::process(ModelData inData) {
 
 						std::vector<cv::Point2f> transformedPoints;
 						cv::perspectiveTransform(undistortedMarkerPosition, transformedPoints, perspective);
-						marker.second.realPosition = cv::Point3f(transformedPoints[0].x + 15, transformedPoints[0].y + 15, 0);
-						std::cout << marker.second.name << "    " << marker.second.realPosition << std::endl;
+						marker.second.realPosition = cv::Point3f(transformedPoints[0].x, transformedPoints[0].y, 1.5);
+						//std::cout<<"POSTPROCESSOR:" << marker.second.name << "    " << marker.second.realPosition << std::endl;
 					}
 				}
 			}
 		}
 	}
 	
-	return inData;
+	return retData;
 }
 
 float ModesPostProcessor::calculateDistance(cv::Point2f p1, cv::Point2f p2) {
@@ -73,7 +76,7 @@ void ModesPostProcessor::initializeTablePositions(ObjectData table) {
 
 	cv::undistortPoints(distortedTablePoints, undistortedTablePoints, camMatrix, distCoeffs, cv::noArray(), camMatrix);
 
-	std::vector<cv::Point2f> rectangle = { cv::Point2f(0,0) , cv::Point2f(220,0) , cv::Point2f(0,110) , cv::Point2f(220,110)};
+	std::vector<cv::Point2f> rectangle = { cv::Point2f(0,0) , cv::Point2f(214,0) , cv::Point2f(0,104) , cv::Point2f(214,104)};
 	cv::Mat tr = cv::getPerspectiveTransform(undistortedTablePoints, rectangle);
 
 	std::vector<cv::Point2f> transformedPoints;

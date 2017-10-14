@@ -97,7 +97,7 @@ bool Camera::initialize(int cameraType , cv::Size frameSize) {
 	cameras = std::vector<cv::VideoCapture>(numberOfCameras);
 	for(int i = 0 ; i<numberOfCameras ; i++){
     	
-		if(!cameras[i].open(1)){
+		if(!cameras[i].open(cameraType)){
 		//    std::cout<<"FALSEEEEEE"<<std::endl;
 			return false;
 		}
